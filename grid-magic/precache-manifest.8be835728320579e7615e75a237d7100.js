@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/grid-magic/static/js/runtime~main.66d2095c.js"
   },
   {
-    "revision": "ebc7728242abd7f2f385",
-    "url": "/grid-magic/static/js/main.ebc77282.chunk.js"
+    "revision": "1d35aea75215bf125786",
+    "url": "/grid-magic/static/js/main.1d35aea7.chunk.js"
   },
   {
     "revision": "d8388020054b9807b977",
     "url": "/grid-magic/static/js/1.d8388020.chunk.js"
   },
   {
-    "revision": "af68499a2e21589efdf7427e6e54bb74",
+    "revision": "0b0e1120a38ff448544c9d3192f49bc5",
     "url": "/grid-magic/index.html"
   }
 ];
