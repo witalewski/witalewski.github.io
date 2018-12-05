@@ -19,6 +19,16 @@ const PhotosStyled = styled.section`
     flex-basis: 32.5%;
     overflow: hidden;
   }
+
+.placeholder {
+    height: 300px;
+    background: #f0f0f0;
+}
+
+  .read-more {
+    width: 100%;
+    text-align: center;
+  }
 `;
 export const Photos = () => {
   const [initialized, setInitialized] = useState(false);
@@ -40,7 +50,7 @@ export const Photos = () => {
           }
         )
         .then(({ data: { data } }) => {
-          setInstagramPhotos(data.slice(0, -2));
+          setInstagramPhotos(data.slice(0, -5));
         });
       setInitialized(true);
     }
@@ -51,15 +61,63 @@ export const Photos = () => {
       <h2>Photos</h2>
       {instagramPhotos.length ? (
         <ul className="instagram-posts-list">
-          {instagramPhotos.map(photo => (
-            <li className="instagram-posts-list__item" key={photo.id}>
-              <InstagramPhoto photo={photo} />
-            </li>
-          ))}
-        </ul>
+        {instagramPhotos.map(photo => (
+          <li className="instagram-posts-list__item" key={photo.id}>
+            <InstagramPhoto photo={photo} />
+          </li>
+        ))}
+      </ul>
       ) : (
-        'Loading...'
-      )}
+        <ul className="instagram-posts-list">
+            <li className="instagram-posts-list__item">
+              <div className="placeholder"/>
+            </li>
+            <li className="instagram-posts-list__item">
+              <div className="placeholder"/>
+            </li>
+            <li className="instagram-posts-list__item">
+              <div className="placeholder"/>
+            </li>
+            <li className="instagram-posts-list__item">
+              <div className="placeholder"/>
+            </li>
+            <li className="instagram-posts-list__item">
+              <div className="placeholder"/>
+            </li>
+            <li className="instagram-posts-list__item">
+              <div className="placeholder"/>
+            </li>
+            <li className="instagram-posts-list__item">
+              <div className="placeholder"/>
+            </li>
+            <li className="instagram-posts-list__item">
+              <div className="placeholder"/>
+            </li>
+            <li className="instagram-posts-list__item">
+              <div className="placeholder"/>
+            </li>
+            <li className="instagram-posts-list__item">
+              <div className="placeholder"/>
+            </li>
+            <li className="instagram-posts-list__item">
+              <div className="placeholder"/>
+            </li>
+            <li className="instagram-posts-list__item">
+              <div className="placeholder"/>
+            </li>
+            <li className="instagram-posts-list__item">
+              <div className="placeholder"/>
+            </li>
+            <li className="instagram-posts-list__item">
+              <div className="placeholder"/>
+            </li>
+            <li className="instagram-posts-list__item">
+              <div className="placeholder"/>
+            </li>
+        </ul>
+      )}<div className="read-more">
+      <a href="https://instagram.com/nihilismislove">See more on instagram.com</a>
+    </div>
     </PhotosStyled>
   );
 };

@@ -20,6 +20,38 @@ const WritingStyled = styled.section`
     flex-basis: 400px;
     overflow: hidden;
   }
+
+  .read-more {
+    width: 100%;
+    text-align: center;
+  }
+
+  .placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .placeholder-title {
+    height: 44px;
+    margin-bottom: 16px;
+    background: #f0f0f0;
+  }
+  .placeholder-image {
+    height: 266px;
+    margin-bottom: 16px;
+    background: #f0f0f0;
+  }
+  .placeholder-date {
+    height: 17px;
+    margin-bottom: 16px;
+    background: #f0f0f0;
+  }
+  .placeholder-content {
+    height: 51px;
+    margin-bottom: 16px;
+    background: #f0f0f0;
+  }
 `;
 export const Writing = () => {
   const [initialized, setInitialized] = useState(false);
@@ -41,7 +73,12 @@ export const Writing = () => {
           }
         )
         .then(({ data }) => {
-          setMediumPosts(parseMediumFeed(data));
+          const result = parseMediumFeed(data);
+          if (result.length > 3) {
+            setMediumPosts(result.slice(0, 4));
+          } else {
+            setMediumPosts(result.slice(0, 2));
+          }
         });
       setInitialized(true);
     }
@@ -59,8 +96,29 @@ export const Writing = () => {
           ))}
         </ul>
       ) : (
-        'Loading...'
+        <ul className="medium-posts-list">
+          <li className="medium-posts-list__item">
+            <div className="placeholder">
+              <div className="placeholder-title" />
+              <div className="placeholder-image" />
+              <div className="placeholder-date" />
+              <div className="placeholder-content" />
+            </div>
+          </li>
+          <li className="medium-posts-list__item">
+            <div className="placeholder">
+              <div className="placeholder-title" />
+              <div className="placeholder-image" />
+              <div className="placeholder-date" />
+              <div className="placeholder-content" />
+            </div>
+          </li>
+        </ul>
       )}
+
+      <div className="read-more">
+        <a href="https://medium.com/@kriswitalewski">Read more on medium.com</a>
+      </div>
     </WritingStyled>
   );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { formatRelative } from 'date-fns';
 
 const GitRepoStyled = styled.div`
   display: flex;
@@ -28,13 +29,40 @@ const GitRepoStyled = styled.div`
   .repo-details {
     margin: 0;
   }
+
+  .repo-language-color {
+    border-radius: 50%;
+    margin-right: 4px;
+    display: inline-block;
+    height: 12px;
+    position: relative;
+    top: 1px;
+    width: 12px;
+  }
+
+  .repo-language {
+    margin-right: 12px;
+  }
 `;
+const languageColors = {
+  JavaScript: "#f1e05a",
+  HTML: "#e34c26",
+};
 export const GitRepo = ({ repo }) => (
   <GitRepoStyled>
     <h3 className="repo-name">
       <a href={repo.url}>{repo.name}</a>
     </h3>
     <p className="repo-description">{repo.description}</p>
-    <p className="repo-details">{repo.language}</p>
+    <p className="repo-details">
+      <span
+        className="repo-language-color"
+        style={{ backgroundColor: languageColors[repo.language] }}
+      />
+      <span className="repo-language">{repo.language}</span>
+      <span>
+        Updated { formatRelative(new Date(repo.updated_at), new Date()) }
+      </span>
+    </p>
   </GitRepoStyled>
 );

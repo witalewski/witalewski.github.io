@@ -22,7 +22,7 @@ export const parseMediumFeed = data => {
       date: item.pubDate._text,
       categories: item.category.map(category => category._cdata),
       image: document.getElementsByTagName('img')[0].src,
-      content: `${contentStrings.join(' ').substr(0, 166).match(/(.*)\W/)[1]}...`,
+      content: `${contentStrings.join(' ').substr(0, 180).match(/(.*)\W/)[1]}...`,
     };
   });
   return feed;

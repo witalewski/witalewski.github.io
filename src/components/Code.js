@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import axios from 'axios';
 import { GitRepo } from './GitRepo';
+import { displayedRepos } from '../setup';
 
 const CodeStyled = styled.section`
   .instagram-posts-list {
@@ -22,6 +23,16 @@ const CodeStyled = styled.section`
 
     overflow: hidden;
   }
+
+  .placeholder {
+    height: 126px;
+    background: #f0f0f0;
+  }
+
+  .read-more {
+    width: 100%;
+    text-align: center;
+  }
 `;
 export const Code = () => {
   const [initialized, setInitialized] = useState(false);
@@ -32,15 +43,8 @@ export const Code = () => {
       axios
         .get('https://api.github.com/users/witalewski/repos')
         .then(({ data }) => {
-          console.log(data.filter(item => item.has_pages));
           setRepos(
-            data
-              .filter(item => item.has_pages)
-              .sort(
-                (a, b) =>
-                  new Date(b.updated_at).getTime() -
-                  new Date(a.updated_at).getTime()
-              )
+            data.filter(({ name }) => displayedRepos.indexOf(name) > -1)
           );
         });
       setInitialized(true);
@@ -59,8 +63,24 @@ export const Code = () => {
           ))}
         </ul>
       ) : (
-        'Loading...'
+        <ul className="instagram-posts-list">
+          <li className="instagram-posts-list__item">
+            <div className="placeholder" />
+          </li>
+          <li className="instagram-posts-list__item">
+            <div className="placeholder" />
+          </li>
+          <li className="instagram-posts-list__item">
+            <div className="placeholder" />
+          </li>
+          <li className="instagram-posts-list__item">
+            <div className="placeholder" />
+          </li>
+        </ul>
       )}
+      <div className="read-more">
+        <a href="https://github.com/witalewski">See more on github.com</a>
+      </div>
     </CodeStyled>
   );
 };

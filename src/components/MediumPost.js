@@ -1,18 +1,20 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { formatRelative } from 'date-fns';
 
 const MediumPostStyled = styled.div`
   .thumbnail {
     width: 100%;
   }
 
-  .content {
-    
+  .date {
+    margin: 16px 0;
+    font-size: 14px;
+    color: #586069;
   }
-  .read-more {
-      display: inline-block;
-      width: 100%;
-      text-align: right;
+
+  .content {
+    font-size: 14px;
   }
 `;
 export const MediumPost = ({ post }) => (
@@ -23,6 +25,9 @@ export const MediumPost = ({ post }) => (
     <a href={post.link}>
       <img className="thumbnail" src={post.image} alt={post.title} />
     </a>
-    <div className="content">{post.content} <span className="read-more"><a href={post.link}>Read more</a></span></div>
+    <div className="date">
+      {formatRelative(new Date(post.date), new Date())}
+    </div>
+    <div className="content">{post.content}</div>
   </MediumPostStyled>
 );
