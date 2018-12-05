@@ -29,7 +29,7 @@ export const Code = () => {
       axios
         .get('https://api.github.com/users/witalewski/repos')
         .then(({ data }) => {
-          console.log(data);
+          console.log(data.filter(item => item.has_pages));
           setRepos(data);
         });
       setInitialized(true);
