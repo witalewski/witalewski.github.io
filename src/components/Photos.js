@@ -39,9 +39,8 @@ export const Photos = () => {
             },
           }
         )
-        .then(({ data: {data} }) => {
-            console.log(data[16]);
-          setInstagramPhotos(data.slice(0,-2));
+        .then(({ data: { data } }) => {
+          setInstagramPhotos(data.slice(0, -2));
         });
       setInitialized(true);
     }

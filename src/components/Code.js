@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import axios from 'axios';
-import { InstagramPhoto } from './InstagramPhoto';
+import { GitRepo } from './GitRepo';
 
 const CodeStyled = styled.section`
   .instagram-posts-list {
@@ -10,13 +10,16 @@ const CodeStyled = styled.section`
 
     display: flex;
     justify-content: space-evenly;
+    align-items: stretch;
     flex-wrap: wrap;
 
     list-style: none;
   }
 
   .instagram-posts-list__item {
-    flex-basis: 32.5%;
+    flex-basis: 48%;
+    margin: 8px 2px;
+
     overflow: hidden;
   }
 `;
@@ -30,7 +33,15 @@ export const Code = () => {
         .get('https://api.github.com/users/witalewski/repos')
         .then(({ data }) => {
           console.log(data.filter(item => item.has_pages));
-          setRepos(data);
+          setRepos(
+            data
+              .filter(item => item.has_pages)
+              .sort(
+                (a, b) =>
+                  new Date(b.updated_at).getTime() -
+                  new Date(a.updated_at).getTime()
+              )
+          );
         });
       setInitialized(true);
     }
@@ -41,11 +52,11 @@ export const Code = () => {
       <h2>Code</h2>
       {repos.length ? (
         <ul className="instagram-posts-list">
-          {/* {repos.map(photo => (
-            <li className="instagram-posts-list__item" key={photo.id}>
-              <InstagramPhoto photo={photo} />
+          {repos.map(repo => (
+            <li className="instagram-posts-list__item" key={repo.id}>
+              <GitRepo repo={repo} />
             </li>
-          ))} */}
+          ))}
         </ul>
       ) : (
         'Loading...'
