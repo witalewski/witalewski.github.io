@@ -111,7 +111,6 @@ export const Writing = () => {
                 {placeholder}
               </li>
             ))}
-        }
       </ul>
 
       <div className="read-more">

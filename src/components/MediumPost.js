@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import { getRelativeDate } from '../utils/relativeDateFormatter';
 
 const MediumPostStyled = styled.div`
-
   margin: 0 16px;
+
   .thumbnail {
     width: 100%;
   }
