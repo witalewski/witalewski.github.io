@@ -24,6 +24,7 @@ const WritingStyled = styled.section`
   .read-more {
     width: 100%;
     text-align: center;
+    margin-top: 48px;
   }
 
   .placeholder {
@@ -85,7 +86,7 @@ export const Writing = () => {
   });
 
   return (
-    <WritingStyled>
+    <WritingStyled id="writing">
       <h2>Writing</h2>
       {mediumPosts.length ? (
         <ul className="medium-posts-list">

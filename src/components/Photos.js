@@ -57,7 +57,7 @@ export const Photos = () => {
   });
 
   return (
-    <PhotosStyled>
+    <PhotosStyled id="photos">
       <h2>Photos</h2>
       {instagramPhotos.length ? (
         <ul className="instagram-posts-list">

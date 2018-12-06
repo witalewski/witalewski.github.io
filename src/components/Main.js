@@ -24,7 +24,7 @@ export const Main = () => (
     <Writing />
     <ImageBreak src={workspace} y={0} />
     <Code />
-    <ImageBreak src={dinosaur} y={25} />
+    <ImageBreak src={dinosaur} y={20} />
     <Photos />
   </MainStyled>
 );

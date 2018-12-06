@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { formatRelative } from 'date-fns';
+import { getRelativeDate } from '../utils/relativeDateFormatter';
 
 const GitRepoStyled = styled.div`
   display: flex;
@@ -61,7 +61,7 @@ export const GitRepo = ({ repo }) => (
       />
       <span className="repo-language">{repo.language}</span>
       <span>
-        Updated { formatRelative(new Date(repo.updated_at), new Date()) }
+        Updated { getRelativeDate(repo.updated_at) }
       </span>
     </p>
   </GitRepoStyled>

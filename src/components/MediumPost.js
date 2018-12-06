@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { formatRelative } from 'date-fns';
+import { getRelativeDate } from '../utils/relativeDateFormatter';
 
 const MediumPostStyled = styled.div`
   .thumbnail {
@@ -25,9 +25,7 @@ export const MediumPost = ({ post }) => (
     <a href={post.link}>
       <img className="thumbnail" src={post.image} alt={post.title} />
     </a>
-    <div className="date">
-      {formatRelative(new Date(post.date), new Date())}
-    </div>
+    <div className="date">{getRelativeDate(post.date)}</div>
     <div className="content">{post.content}</div>
   </MediumPostStyled>
 );

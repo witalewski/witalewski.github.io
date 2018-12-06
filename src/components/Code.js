@@ -32,6 +32,7 @@ const CodeStyled = styled.section`
   .read-more {
     width: 100%;
     text-align: center;
+    margin-top: 48px;
   }
 `;
 export const Code = () => {
@@ -52,7 +53,7 @@ export const Code = () => {
   });
 
   return (
-    <CodeStyled>
+    <CodeStyled id="code">
       <h2>Code</h2>
       {repos.length ? (
         <ul className="instagram-posts-list">
