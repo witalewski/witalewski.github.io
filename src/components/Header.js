@@ -59,7 +59,6 @@ export const Header = () => {
   const scrollHandler = () => {
     const y = window.pageYOffset || document.documentElement.scrollTop;
     setOffset(y / (window.innerHeight * 0.6));
-    console.log(y + 60, window.innerHeight * 0.6);
   };
 
   useEffect(() => {
