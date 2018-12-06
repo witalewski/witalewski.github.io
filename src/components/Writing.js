@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import axios from 'axios';
 import { parseMediumFeed } from '../utils/mediumFeedParser';
 import { MediumPost } from './MediumPost';
+import { range } from '../utils/range';
 
 const WritingStyled = styled.section`
   .medium-posts-list {
@@ -85,37 +86,33 @@ export const Writing = () => {
     }
   });
 
+  const placeholder = (
+    <div className="placeholder">
+      <div className="placeholder-title" />
+      <div className="placeholder-image" />
+      <div className="placeholder-date" />
+      <div className="placeholder-content" />
+    </div>
+  );
+
   return (
     <WritingStyled id="writing">
       <h2>Writing</h2>
-      {mediumPosts.length ? (
-        <ul className="medium-posts-list">
-          {mediumPosts.map(post => (
-            <li className="medium-posts-list__item" key={post.title}>
-              <MediumPost post={post} />
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <ul className="medium-posts-list">
-          <li className="medium-posts-list__item">
-            <div className="placeholder">
-              <div className="placeholder-title" />
-              <div className="placeholder-image" />
-              <div className="placeholder-date" />
-              <div className="placeholder-content" />
-            </div>
-          </li>
-          <li className="medium-posts-list__item">
-            <div className="placeholder">
-              <div className="placeholder-title" />
-              <div className="placeholder-image" />
-              <div className="placeholder-date" />
-              <div className="placeholder-content" />
-            </div>
-          </li>
-        </ul>
-      )}
+
+      <ul className="medium-posts-list">
+        {mediumPosts.length
+          ? mediumPosts.map(post => (
+              <li className="medium-posts-list__item" key={post.title}>
+                <MediumPost post={post} />
+              </li>
+            ))
+          : range(1, 2).map(i => (
+              <li key={`placeholder-${i}`} className="medium-posts-list__item">
+                {placeholder}
+              </li>
+            ))}
+        }
+      </ul>
 
       <div className="read-more">
         <a href="https://medium.com/@kriswitalewski">Read more on medium.com</a>

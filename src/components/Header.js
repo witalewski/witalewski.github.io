@@ -56,11 +56,8 @@ const HeaderStyled = styled.header`
 export const Header = () => {
   const [offset, setOffset] = useState(0);
 
-  const [useSmallHeader, setUseSmallHeader] = useState(false);
-
   const scrollHandler = () => {
     const y = window.pageYOffset || document.documentElement.scrollTop;
-    setUseSmallHeader(y + 60 > window.innerHeight * 0.6);
     setOffset(y / (window.innerHeight * 0.6));
     console.log(y + 60, window.innerHeight * 0.6);
   };
@@ -84,30 +81,6 @@ export const Header = () => {
           Developing advanced web applications with ES6, React, MobX &amp; Redux
         </summary>
       </div>
-      {useSmallHeader && (
-        <div className="fixed-header">
-          <h1 className="fixed-header-title">Kris Witalewski</h1>
-          <nav className="small-nav">
-            <ul className="small-nav--list">
-              <li className="small-nav--list-item">
-                <a className="small-nav--link" href="#writing">
-                  Writing
-                </a>
-              </li>
-              <li className="small-nav--list-item">
-                <a className="small-nav--link" href="#code">
-                  Code
-                </a>
-              </li>
-              <li className="small-nav--list-item">
-                <a className="small-nav--link" href="#photos">
-                  Photos
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      )}
     </HeaderStyled>
   );
 };

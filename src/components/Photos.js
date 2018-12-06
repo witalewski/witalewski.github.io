@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import axios from 'axios';
 import { InstagramPhoto } from './InstagramPhoto';
+import { range } from '../utils/range';
 
 const PhotosStyled = styled.section`
   .instagram-posts-list {
@@ -20,10 +21,16 @@ const PhotosStyled = styled.section`
     overflow: hidden;
   }
 
-.placeholder {
+  .placeholder {
     height: 300px;
+  }
+
+  .placeholder--inner {
+    width: 100%;
+    height: 200px;
+    margin-top: 50px;
     background: #f0f0f0;
-}
+  }
 
   .read-more {
     width: 100%;
@@ -59,65 +66,29 @@ export const Photos = () => {
   return (
     <PhotosStyled id="photos">
       <h2>Photos</h2>
-      {instagramPhotos.length ? (
-        <ul className="instagram-posts-list">
-        {instagramPhotos.map(photo => (
-          <li className="instagram-posts-list__item" key={photo.id}>
-            <InstagramPhoto photo={photo} />
-          </li>
-        ))}
+      <ul className="instagram-posts-list">
+        {instagramPhotos.length
+          ? instagramPhotos.map(photo => (
+              <li className="instagram-posts-list__item" key={photo.id}>
+                <InstagramPhoto photo={photo} />
+              </li>
+            ))
+          : range(1, 15).map(i => (
+              <li
+                key={`image-placeholder-${i}`}
+                className="instagram-posts-list__item"
+              >
+                <div className="placeholder">
+                  <div className="placeholder--inner" />
+                </div>
+              </li>
+            ))}
       </ul>
-      ) : (
-        <ul className="instagram-posts-list">
-            <li className="instagram-posts-list__item">
-              <div className="placeholder"/>
-            </li>
-            <li className="instagram-posts-list__item">
-              <div className="placeholder"/>
-            </li>
-            <li className="instagram-posts-list__item">
-              <div className="placeholder"/>
-            </li>
-            <li className="instagram-posts-list__item">
-              <div className="placeholder"/>
-            </li>
-            <li className="instagram-posts-list__item">
-              <div className="placeholder"/>
-            </li>
-            <li className="instagram-posts-list__item">
-              <div className="placeholder"/>
-            </li>
-            <li className="instagram-posts-list__item">
-              <div className="placeholder"/>
-            </li>
-            <li className="instagram-posts-list__item">
-              <div className="placeholder"/>
-            </li>
-            <li className="instagram-posts-list__item">
-              <div className="placeholder"/>
-            </li>
-            <li className="instagram-posts-list__item">
-              <div className="placeholder"/>
-            </li>
-            <li className="instagram-posts-list__item">
-              <div className="placeholder"/>
-            </li>
-            <li className="instagram-posts-list__item">
-              <div className="placeholder"/>
-            </li>
-            <li className="instagram-posts-list__item">
-              <div className="placeholder"/>
-            </li>
-            <li className="instagram-posts-list__item">
-              <div className="placeholder"/>
-            </li>
-            <li className="instagram-posts-list__item">
-              <div className="placeholder"/>
-            </li>
-        </ul>
-      )}<div className="read-more">
-      <a href="https://instagram.com/nihilismislove">See more on instagram.com</a>
-    </div>
+      <div className="read-more">
+        <a href="https://instagram.com/nihilismislove">
+          See more on instagram.com
+        </a>
+      </div>
     </PhotosStyled>
   );
 };
