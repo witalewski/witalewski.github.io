@@ -11,6 +11,17 @@ const ImageBreakStyled = styled.div`
 
     object-fit: cover;
   }
+  @media all and (max-width: 940px) {
+    .break-image {
+    width: 100%;
+    height: 50px;
+
+    margin-top: 24px;
+    margin-bottom: 24px;
+
+    object-fit: cover;
+  }
+  }
 `;
 export const ImageBreak = ({ src, y }) => {
   const imageRef = createRef();
@@ -35,7 +46,7 @@ export const ImageBreak = ({ src, y }) => {
       <img
         ref={imageRef}
         className="break-image"
-        style={{ objectPosition: `0 ${75 - y - offset * 25}%` }}
+        style={{ objectPosition: `0 ${window.innerWidth > 940? (75 -  y - offset * 25) : (70 - offset * 20)}%` }}
         src={src}
         alt="Kris Witalewski"
       />

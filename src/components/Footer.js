@@ -12,12 +12,6 @@ const FooterStyled = styled.footer`
     justify-content: center;
     list-style: none;
   }
-
-  .social-media-icon {
-    width: 20px;
-    height: 20px;
-    padding: 20px;
-  }
 `;
 export const Footer = () => (
   <FooterStyled>

@@ -32,33 +32,25 @@ const HeaderStyled = styled.header`
 
   .description {
     font-size: 24px;
-    max-width: 80vw;
+    max-width: 60vw;
   }
 
-  .large-nav {
-    position: absolute;
-    top: 2.5vw;
-    left: 2.5vw;
+  @media all and (max-width: 940px) {
+    height: 30vh;
+
+    .hero-text {
+      top: 20vh;
+      transform: none;
+    }
+
+    .title {
+      font-size: 24px;
+    }
+    .description {
+      display: none;
+    }
   }
 
-  .large-nav--list {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .large-nav--list-item {
-    margin: 8px;
-  }
-
-  .large-nav--link,
-  .large-nav--link:active,
-  .large-nav--link:visited {
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-  }
   .small-nav {
     flex-grow: 1;
   }
@@ -78,7 +70,7 @@ const HeaderStyled = styled.header`
   .small-nav--link,
   .small-nav--link:active,
   .small-nav--link:visited {
-    color: black;
+    color: #0366d6;
     font-weight: bold;
   }
 
@@ -99,6 +91,18 @@ const HeaderStyled = styled.header`
     margin: 0;
     font-size: 20px;
     margin-left: 24px;
+  }
+  @media all and (max-width: 940px) {
+    .fixed-header {
+      height: 48px;
+    }
+
+    .fixed-header-title,
+    .small-nav--link {
+      font-size: 14px;
+      padding: 0;
+      margin: 8px;
+    }
   }
 `;
 
@@ -133,25 +137,6 @@ export const Header = () => {
           Developing advanced web applications with ES6, React, MobX &amp; Redux
         </summary>
       </div>
-      <nav className="large-nav">
-        <ul className="large-nav--list">
-          <li className="large-nav--list-item">
-            <a className="large-nav--link" href="#writing">
-              Writing
-            </a>
-          </li>
-          <li className="large-nav--list-item">
-            <a className="large-nav--link" href="#code">
-              Code
-            </a>
-          </li>
-          <li className="large-nav--list-item">
-            <a className="large-nav--link" href="#photos">
-              Photos
-            </a>
-          </li>
-        </ul>
-      </nav>
       {useSmallHeader && (
         <div className="fixed-header">
           <h1 className="fixed-header-title">Kris Witalewski</h1>
