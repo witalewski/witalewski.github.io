@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import hero from '../assets/images/hero.jpg';
+import { BREAKPOINT } from '../global/Constants';
 
 const HeaderStyled = styled.header`
   width: 100vw;
@@ -35,73 +36,19 @@ const HeaderStyled = styled.header`
     max-width: 60vw;
   }
 
-  @media all and (max-width: 940px) {
+  @media all and (max-width: ${BREAKPOINT}px) {
+    margin-top: 48px;
     height: 30vh;
 
     .hero-text {
-      top: 20vh;
-      transform: none;
+      top: 30vh;
     }
 
     .title {
-      font-size: 24px;
-    }
-    .description {
       display: none;
     }
-  }
-
-  .small-nav {
-    flex-grow: 1;
-  }
-
-  .small-nav--list {
-    display: flex;
-    justify-content: flex-end;
-    list-style: none;
-    margin: 0 16px;
-    padding: 0;
-  }
-
-  .small-nav--list-item {
-    margin: 8px;
-  }
-
-  .small-nav--link,
-  .small-nav--link:active,
-  .small-nav--link:visited {
-    color: #0366d6;
-    font-weight: bold;
-  }
-
-  .fixed-header {
-    display: flex;
-    align-items: center;
-
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    height: 60px;
-    background: white;
-
-    border-bottom: 1px solid #d1d5da;
-  }
-
-  .fixed-header-title {
-    margin: 0;
-    font-size: 20px;
-    margin-left: 24px;
-  }
-  @media all and (max-width: 940px) {
-    .fixed-header {
-      height: 48px;
-    }
-
-    .fixed-header-title,
-    .small-nav--link {
+    .description {
       font-size: 14px;
-      padding: 0;
-      margin: 8px;
     }
   }
 `;

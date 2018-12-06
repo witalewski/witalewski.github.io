@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createRef } from 'react';
 import styled from '@emotion/styled';
+import { BREAKPOINT } from '../global/Constants';
 
 const ImageBreakStyled = styled.div`
   .break-image {
@@ -11,16 +12,16 @@ const ImageBreakStyled = styled.div`
 
     object-fit: cover;
   }
-  @media all and (max-width: 940px) {
+  @media all and (max-width: ${BREAKPOINT}px) {
     .break-image {
-    width: 100%;
-    height: 50px;
+      width: 100%;
+      height: 50px;
 
-    margin-top: 24px;
-    margin-bottom: 24px;
+      margin-top: 24px;
+      margin-bottom: 24px;
 
-    object-fit: cover;
-  }
+      object-fit: cover;
+    }
   }
 `;
 export const ImageBreak = ({ src, y }) => {
@@ -46,7 +47,11 @@ export const ImageBreak = ({ src, y }) => {
       <img
         ref={imageRef}
         className="break-image"
-        style={{ objectPosition: `0 ${window.innerWidth > 940? (75 -  y - offset * 25) : (70 - offset * 20)}%` }}
+        style={{
+          objectPosition: `0 ${
+            window.innerWidth > BREAKPOINT ? 75 - y - offset * 25 : 70 - offset * 20
+          }%`,
+        }}
         src={src}
         alt="Kris Witalewski"
       />

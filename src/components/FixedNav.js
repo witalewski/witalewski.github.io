@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
+import { BREAKPOINT } from '../global/Constants';
 
 const FixedNavStyled = styled.header`
   display: flex;
@@ -42,7 +43,7 @@ const FixedNavStyled = styled.header`
     font-size: 20px;
     margin-left: 24px;
   }
-  @media all and (max-width: 940px) {
+  @media all and (max-width: ${BREAKPOINT}px) {
     height: 48px;
 
     .title,
@@ -55,11 +56,15 @@ const FixedNavStyled = styled.header`
 `;
 
 export const FixedNav = ({ items }) => {
-  const [useSmallHeader, setUseSmallHeader] = useState(false);
+  const [useSmallHeader, setUseSmallHeader] = useState(
+    window.innerWidth <= BREAKPOINT
+  );
 
   const scrollHandler = () => {
     const y = window.pageYOffset || document.documentElement.scrollTop;
-    setUseSmallHeader(y + 60 > window.innerHeight * 0.6);
+    setUseSmallHeader(
+      y + 60 > window.innerHeight * 0.6 || window.innerWidth <= BREAKPOINT
+    );
   };
 
   useEffect(() => {

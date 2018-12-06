@@ -35,8 +35,7 @@ const GitRepoStyled = styled.div`
     margin-right: 4px;
     display: inline-block;
     height: 12px;
-    position: relative;
-    top: 1px;
+    padding-top: 1px;
     width: 12px;
   }
 

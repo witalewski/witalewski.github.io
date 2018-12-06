@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { BREAKPOINT } from '../global/Constants';
 
 const NavStyled = styled.nav`
   position: absolute;
@@ -24,6 +25,9 @@ const NavStyled = styled.nav`
     font-weight: bold;
     font-size: 20px;
   }
+  @media all and (max-width: ${BREAKPOINT}px) {
+    display: none;
+  }
 `;
 
 export const Nav = ({ items }) => {
@@ -31,7 +35,7 @@ export const Nav = ({ items }) => {
     <NavStyled>
       <ul className="list">
         {items.map(({ label, href }) => (
-          <li key={label }className="list-item">
+          <li key={label} className="list-item">
             <a className="link" href={href}>
               {label}
             </a>
