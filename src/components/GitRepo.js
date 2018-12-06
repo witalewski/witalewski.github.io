@@ -50,7 +50,7 @@ const languageColors = {
 export const GitRepo = ({ repo }) => (
   <GitRepoStyled>
     <h3 className="repo-name">
-      <a href={repo.url}>{repo.name}</a>
+      <a href={repo.html_url}>{repo.name}</a>
     </h3>
     <p className="repo-description">{repo.description}</p>
     <p className="repo-details">
