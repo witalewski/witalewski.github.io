@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import axios from 'axios';
-import { Range } from 'immutable';
 import { GitRepo } from './GitRepo';
 import { displayedRepos } from '../setup';
+const R = require('ramda');
 
 const CodeStyled = styled.section`
   .repos-list {
@@ -58,16 +58,19 @@ export const Code = () => {
       <h2>Code</h2>
       <ul className="repos-list">
         {repos.length
-          ? repos.map(repo => (
+          ? R.map(repo => (
               <li className="repos-list__item" key={repo.id}>
                 <GitRepo repo={repo} />
               </li>
-            ))
-          : Range(0, 4).map(i => (
-              <li key={`repo-placeholder-${i}`} className="repos-list__item">
-                <div className="placeholder" />
-              </li>
-            ))}
+            ))(repos)
+          : R.map(
+              i => (
+                <li key={`repo-placeholder-${i}`} className="repos-list__item">
+                  <div className="placeholder" />
+                </li>
+              ),
+              R.range(0, 4)
+            )}
       </ul>
       <div className="read-more">
         <a href="https://github.com/witalewski">See more on github.com</a>

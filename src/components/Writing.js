@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import axios from 'axios';
-import { Range } from 'immutable';
 import { parseMediumFeed } from '../utils/mediumFeedParser';
 import { MediumPost } from './MediumPost';
+const R = require('ramda');
 
 const WritingStyled = styled.section`
   .medium-posts-list {
@@ -92,21 +92,27 @@ export const Writing = () => {
 
       <ul className="medium-posts-list">
         {mediumPosts.length
-          ? mediumPosts.map(post => (
+          ? R.map(post => (
               <li className="medium-posts-list__item" key={post.title}>
                 <MediumPost post={post} />
               </li>
-            ))
-          : Range(0, 2).map(i => (
-              <li key={`placeholder-${i}`} className="medium-posts-list__item">
-                <div className="placeholder">
-                  <div className="placeholder-title" />
-                  <div className="placeholder-image" />
-                  <div className="placeholder-date" />
-                  <div className="placeholder-content" />
-                </div>
-              </li>
-            ))}
+            ))(mediumPosts)
+          : R.map(
+              i => (
+                <li
+                  key={`placeholder-${i}`}
+                  className="medium-posts-list__item"
+                >
+                  <div className="placeholder">
+                    <div className="placeholder-title" />
+                    <div className="placeholder-image" />
+                    <div className="placeholder-date" />
+                    <div className="placeholder-content" />
+                  </div>
+                </li>
+              ),
+              R.range(0, 2)
+            )}
       </ul>
 
       <div className="read-more">

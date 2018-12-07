@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import axios from 'axios';
-import { Range } from 'immutable';
 import { InstagramPhoto } from './InstagramPhoto';
+const R = require('ramda');
 
 const PhotosStyled = styled.section`
   .instagram-posts-list {
@@ -57,7 +57,7 @@ export const Photos = () => {
           }
         )
         .then(({ data: { data } }) => {
-          setInstagramPhotos(data.slice(0, -5));
+          setInstagramPhotos(R.take(15, data));
         });
       setInitialized(true);
     }
@@ -68,21 +68,27 @@ export const Photos = () => {
       <h2>Photos</h2>
       <ul className="instagram-posts-list">
         {instagramPhotos.length
-          ? instagramPhotos.map(photo => (
-              <li className="instagram-posts-list__item" key={photo.id}>
-                <InstagramPhoto photo={photo} />
-              </li>
-            ))
-          : Range(0,15).map(i => (
-              <li
-                key={`image-placeholder-${i}`}
-                className="instagram-posts-list__item"
-              >
-                <div className="placeholder">
-                  <div className="placeholder--inner" />
-                </div>
-              </li>
-            ))}
+          ? R.map(
+              photo => (
+                <li className="instagram-posts-list__item" key={photo.id}>
+                  <InstagramPhoto photo={photo} />
+                </li>
+              ),
+              instagramPhotos
+            )
+          : R.map(
+              i => (
+                <li
+                  key={`image-placeholder-${i}`}
+                  className="instagram-posts-list__item"
+                >
+                  <div className="placeholder">
+                    <div className="placeholder--inner" />
+                  </div>
+                </li>
+              ),
+              R.range(0, 15)
+            )}
       </ul>
       <div className="read-more">
         <a href="https://instagram.com/nihilismislove">
