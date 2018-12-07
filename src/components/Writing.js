@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import axios from 'axios';
+import { Range } from 'immutable';
 import { parseMediumFeed } from '../utils/mediumFeedParser';
 import { MediumPost } from './MediumPost';
-import { range } from '../utils/range';
 
 const WritingStyled = styled.section`
   .medium-posts-list {
@@ -86,15 +86,6 @@ export const Writing = () => {
     }
   });
 
-  const placeholder = (
-    <div className="placeholder">
-      <div className="placeholder-title" />
-      <div className="placeholder-image" />
-      <div className="placeholder-date" />
-      <div className="placeholder-content" />
-    </div>
-  );
-
   return (
     <WritingStyled id="writing">
       <h2>Writing</h2>
@@ -106,9 +97,14 @@ export const Writing = () => {
                 <MediumPost post={post} />
               </li>
             ))
-          : range(1, 2).map(i => (
+          : Range(0, 2).map(i => (
               <li key={`placeholder-${i}`} className="medium-posts-list__item">
-                {placeholder}
+                <div className="placeholder">
+                  <div className="placeholder-title" />
+                  <div className="placeholder-image" />
+                  <div className="placeholder-date" />
+                  <div className="placeholder-content" />
+                </div>
               </li>
             ))}
       </ul>

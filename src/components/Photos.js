@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import axios from 'axios';
+import { Range } from 'immutable';
 import { InstagramPhoto } from './InstagramPhoto';
-import { range } from '../utils/range';
 
 const PhotosStyled = styled.section`
   .instagram-posts-list {
@@ -73,7 +73,7 @@ export const Photos = () => {
                 <InstagramPhoto photo={photo} />
               </li>
             ))
-          : range(1, 15).map(i => (
+          : Range(0,15).map(i => (
               <li
                 key={`image-placeholder-${i}`}
                 className="instagram-posts-list__item"

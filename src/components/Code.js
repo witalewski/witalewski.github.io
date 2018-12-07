@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import axios from 'axios';
+import { Range } from 'immutable';
 import { GitRepo } from './GitRepo';
 import { displayedRepos } from '../setup';
 
 const CodeStyled = styled.section`
-  .instagram-posts-list {
+  .repos-list {
     max-width: 100%;
     padding-left: 0;
 
@@ -17,7 +18,7 @@ const CodeStyled = styled.section`
     list-style: none;
   }
 
-  .instagram-posts-list__item {
+  .repos-list__item {
     flex-basis: 48%;
     margin: 8px 2px;
 
@@ -55,30 +56,19 @@ export const Code = () => {
   return (
     <CodeStyled id="code">
       <h2>Code</h2>
-      {repos.length ? (
-        <ul className="instagram-posts-list">
-          {repos.map(repo => (
-            <li className="instagram-posts-list__item" key={repo.id}>
-              <GitRepo repo={repo} />
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <ul className="instagram-posts-list">
-          <li className="instagram-posts-list__item">
-            <div className="placeholder" />
-          </li>
-          <li className="instagram-posts-list__item">
-            <div className="placeholder" />
-          </li>
-          <li className="instagram-posts-list__item">
-            <div className="placeholder" />
-          </li>
-          <li className="instagram-posts-list__item">
-            <div className="placeholder" />
-          </li>
-        </ul>
-      )}
+      <ul className="repos-list">
+        {repos.length
+          ? repos.map(repo => (
+              <li className="repos-list__item" key={repo.id}>
+                <GitRepo repo={repo} />
+              </li>
+            ))
+          : Range(0, 4).map(i => (
+              <li key={`repo-placeholder-${i}`} className="repos-list__item">
+                <div className="placeholder" />
+              </li>
+            ))}
+      </ul>
       <div className="read-more">
         <a href="https://github.com/witalewski">See more on github.com</a>
       </div>
