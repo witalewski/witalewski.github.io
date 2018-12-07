@@ -40,21 +40,25 @@ export const Code = () => {
   const [initialized, setInitialized] = useState(false);
   const [repos, setRepos] = useState([]);
 
-  useEffect(() => {
-    if (!initialized) {
-      axios
-        .get('https://api.github.com/users/witalewski/repos')
-        .then(({ data }) => {
-          setRepos(
-            R.filter(
-              repo => R.any(R.equals(R.prop('name', repo)), displayedRepos),
-              data
-            )
-          );
-        });
-      setInitialized(true);
-    }
-  });
+  useEffect(
+    R.ifElse(
+      () => initialized,
+      () => {},
+      () => {
+        axios
+          .get('https://api.github.com/users/witalewski/repos')
+          .then(({ data }) => {
+            setRepos(
+              R.filter(
+                repo => R.any(R.equals(R.prop('name', repo)), displayedRepos),
+                data
+              )
+            );
+          });
+        setInitialized(true);
+      }
+    )
+  );
 
   return (
     <CodeStyled id="code">
