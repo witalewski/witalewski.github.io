@@ -9,7 +9,7 @@ export const getRelativeDate = dateString => {
   const now = new Date();
   const then = new Date(dateString);
   const difference = new Date().getTime() - new Date(dateString).getTime();
-  
+
   return R.cond([
     [R.lt(R.__, MINUTE), R.always('just now')],
     [R.lt(R.__, 2 * MINUTE), R.always('1 minute ago')],
@@ -17,7 +17,7 @@ export const getRelativeDate = dateString => {
       R.lt(R.__, HOUR),
       R.always(`${Math.floor(difference / MINUTE)} minutes ago`),
     ],
-    [R.lt(R.__, 2 * HOUR), R.always('1 hout ago')],
+    [R.lt(R.__, 2 * HOUR), R.always('1 hour ago')],
     [R.lt(R.__, DAY), R.always(`${Math.floor(difference / HOUR)} hours ago`)],
     [
       R.lt(R.__, 2 * DAY),
