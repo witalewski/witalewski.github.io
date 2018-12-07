@@ -1,5 +1,6 @@
 {
   "name": "witalewski.github.io",
+  "homepage":"https://witalewski.github.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
