@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import axios from 'axios';
+import * as R from 'ramda';
 import { parseMediumFeed } from '../utils/mediumFeedParser';
 import { MediumPost } from './MediumPost';
-const R = require('ramda');
 
 const WritingStyled = styled.section`
   .medium-posts-list {

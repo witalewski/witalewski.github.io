@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import axios from 'axios';
+import * as R from 'ramda';
 import { InstagramPhoto } from './InstagramPhoto';
-const R = require('ramda');
 
 const PhotosStyled = styled.section`
   .instagram-posts-list {

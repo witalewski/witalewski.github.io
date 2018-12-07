@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import axios from 'axios';
+import * as R from 'ramda';
 import { GitRepo } from './GitRepo';
 import { displayedRepos } from '../setup';
-const R = require('ramda');
 
 const CodeStyled = styled.section`
   .repos-list {
