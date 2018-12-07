@@ -46,7 +46,10 @@ export const Code = () => {
         .get('https://api.github.com/users/witalewski/repos')
         .then(({ data }) => {
           setRepos(
-            data.filter(({ name }) => displayedRepos.indexOf(name) > -1)
+            R.filter(
+              repo => R.any(R.equals(R.prop('name', repo)), displayedRepos),
+              data
+            )
           );
         });
       setInitialized(true);
@@ -58,11 +61,14 @@ export const Code = () => {
       <h2>Code</h2>
       <ul className="repos-list">
         {repos.length
-          ? R.map(repo => (
-              <li className="repos-list__item" key={repo.id}>
-                <GitRepo repo={repo} />
-              </li>
-            ))(repos)
+          ? R.map(
+              repo => (
+                <li className="repos-list__item" key={repo.id}>
+                  <GitRepo repo={repo} />
+                </li>
+              ),
+              repos
+            )
           : R.map(
               i => (
                 <li key={`repo-placeholder-${i}`} className="repos-list__item">

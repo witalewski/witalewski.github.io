@@ -77,9 +77,9 @@ export const Writing = () => {
         .then(({ data }) => {
           const result = parseMediumFeed(data);
           if (result.length > 3) {
-            setMediumPosts(result.slice(0, 4));
+            setMediumPosts(R.take(4, result));
           } else {
-            setMediumPosts(result.slice(0, 2));
+            setMediumPosts(R.take(2, result));
           }
         });
       setInitialized(true);
@@ -92,11 +92,14 @@ export const Writing = () => {
 
       <ul className="medium-posts-list">
         {mediumPosts.length
-          ? R.map(post => (
-              <li className="medium-posts-list__item" key={post.title}>
-                <MediumPost post={post} />
-              </li>
-            ))(mediumPosts)
+          ? R.map(
+              post => (
+                <li className="medium-posts-list__item" key={post.title}>
+                  <MediumPost post={post} />
+                </li>
+              ),
+              mediumPosts
+            )
           : R.map(
               i => (
                 <li
