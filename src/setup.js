@@ -2,5 +2,7 @@ export const displayedRepos = [
     'grid-magic',
     'nightcall',
     'hooks-demo',
-    'mobx-quickstart'
+    'hooks-demo-part-2',
+    'mobx-quickstart',
+    'witalewski.github.io'
 ];
