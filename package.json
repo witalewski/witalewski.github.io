@@ -69,7 +69,9 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "predeploy": "yarn build && yarn build-storybook && cp -r storybook-static build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
