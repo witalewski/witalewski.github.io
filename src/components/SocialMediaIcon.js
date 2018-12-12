@@ -1,14 +1,6 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import { SocialMediaIconStyled } from './SocialMediaIconStyled';
 
-const SocialMediaIconStyled = styled.div`
-  padding: 20px;
-
-  .icon-image {
-    width: 20px;
-    height: 20px;
-  }
-`;
 export const SocialMediaIcon = ({ name, href, source }) => (
   <SocialMediaIconStyled>
     <a href={href} target="_blank" rel="noopener noreferrer">

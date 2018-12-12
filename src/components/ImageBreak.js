@@ -1,29 +1,7 @@
 import React, { useState, useEffect, createRef } from 'react';
-import styled from '@emotion/styled';
+import { ImageBreakStyled } from './ImageBreakStyled';
 import { BREAKPOINT } from '../global/Constants';
 
-const ImageBreakStyled = styled.div`
-  .break-image {
-    width: 100%;
-    height: 200px;
-
-    margin-top: 96px;
-    margin-bottom: 96px;
-
-    object-fit: cover;
-  }
-  @media all and (max-width: ${BREAKPOINT}px) {
-    .break-image {
-      width: 100%;
-      height: 50px;
-
-      margin-top: 24px;
-      margin-bottom: 24px;
-
-      object-fit: cover;
-    }
-  }
-`;
 export const ImageBreak = ({ src, y }) => {
   const imageRef = createRef();
   const [offset, setOffset] = useState(0);
@@ -49,7 +27,9 @@ export const ImageBreak = ({ src, y }) => {
         className="break-image"
         style={{
           objectPosition: `0 ${
-            window.innerWidth > BREAKPOINT ? 75 - y - offset * 25 : 70 - offset * 20
+            window.innerWidth > BREAKPOINT
+              ? 75 - y - offset * 25
+              : 70 - offset * 20
           }%`,
         }}
         src={src}

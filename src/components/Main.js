@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import styled from '@emotion/styled';
 import * as R from 'ramda';
+import { MainStyled } from './MainStyled';
 import { Writing } from './Writing';
 import { Photos } from './Photos';
 import { Code } from './Code';
@@ -14,19 +14,6 @@ import {
 } from '../api/codeApi';
 import { IMPURE_getMediumPosts, processMediumResults } from '../api/writingApi';
 import { IMPURE_getPhotos, processPhotosResults } from '../api/photosApi';
-
-const MainStyled = styled.main`
-  h2 {
-    text-align: center;
-  }
-
-  section {
-    padding: 48px 0;
-
-    max-width: 960px;
-    margin: auto;
-  }
-`;
 
 export const Main = () => {
   const [initialized, IMPURE_setInitialized] = useState(false);

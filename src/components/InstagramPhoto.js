@@ -1,11 +1,6 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import { InstagramPhotoStyled } from './InstagramPhotoStyled';
 
-const InstagramPhotoStyled = styled.div`
-  .thumbnail {
-    width: 100%;
-  }
-`;
 export const InstagramPhoto = ({ photo }) => (
   <InstagramPhotoStyled>
     <a href={photo.link}>
