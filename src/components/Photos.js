@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
-import axios from 'axios';
 import * as R from 'ramda';
 import { InstagramPhoto } from './InstagramPhoto';
 
@@ -37,64 +36,41 @@ const PhotosStyled = styled.section`
     text-align: center;
   }
 `;
-export const Photos = () => {
-  const [initialized, setInitialized] = useState(false);
-  const [instagramPhotos, setInstagramPhotos] = useState([]);
 
-  useEffect(() => {
-    if (!initialized) {
-      axios
-        .post(
-          'https://qw6c0mxwz9.execute-api.eu-west-1.amazonaws.com/default/lightswitch',
-          JSON.stringify({
-            instagram: true,
-          }),
-          {
-            headers: {
-              'X-Api-Key': 'S0a5WCywb68N075YgoTVK3TidPB11bus2vplyW9s',
-              'Content-Type': 'application/json',
-            },
-          }
-        )
-        .then(({ data: { data } }) => {
-          setInstagramPhotos(R.take(15, data));
-        });
-      setInitialized(true);
-    }
-  });
-
-  return (
-    <PhotosStyled id="photos">
-      <h2>Photos</h2>
-      <ul className="instagram-posts-list">
-        {instagramPhotos.length
-          ? R.map(
-              photo => (
-                <li className="instagram-posts-list__item" key={photo.id}>
-                  <InstagramPhoto photo={photo} />
-                </li>
-              ),
-              instagramPhotos
-            )
-          : R.map(
-              i => (
-                <li
-                  key={`image-placeholder-${i}`}
-                  className="instagram-posts-list__item"
-                >
-                  <div className="placeholder">
-                    <div className="placeholder--inner" />
-                  </div>
-                </li>
-              ),
-              R.range(0, 15)
-            )}
-      </ul>
-      <div className="read-more">
-        <a href="https://instagram.com/nihilismislove">
-          See more on instagram.com
-        </a>
-      </div>
-    </PhotosStyled>
+const renderPlaceholders = n =>
+  R.always(
+    R.map(i => (
+      <li key={`image-placeholder-${i}`} className="instagram-posts-list__item">
+        <div className="placeholder">
+          <div className="placeholder--inner" />
+        </div>
+      </li>
+    ))(R.range(0, n))
   );
-};
+
+const renderPhotos = n =>
+  R.compose(
+    R.map(photo => (
+      <li className="instagram-posts-list__item" key={photo.id}>
+        <InstagramPhoto photo={photo} />
+      </li>
+    )),
+    R.take(n)
+  );
+
+const renderPhotosOrPlaceholders = n =>
+  R.ifElse(R.isEmpty, renderPlaceholders(n), renderPhotos(n));
+
+export const Photos = ({ instagramPhotos, n }) => (
+  <PhotosStyled id="photos">
+    <h2>Photos</h2>
+    <ul className="instagram-posts-list">
+      {renderPhotosOrPlaceholders(n)(instagramPhotos)}
+    </ul>
+    <div className="read-more">
+      <a href="https://instagram.com/nihilismislove">
+        See more on instagram.com
+      </a>
+    </div>
+  </PhotosStyled>
+);

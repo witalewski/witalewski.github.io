@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
-import axios from 'axios';
 import * as R from 'ramda';
-import { parseMediumFeed } from '../utils/mediumFeedParser';
 import { MediumPost } from './MediumPost';
 
 const WritingStyled = styled.section`
@@ -55,79 +53,57 @@ const WritingStyled = styled.section`
     background: #f0f0f0;
   }
 `;
-export const Writing = () => {
-  const [initialized, setInitialized] = useState(false);
-  const [mediumPosts, setMediumPosts] = useState([]);
 
-  useEffect(() => {
-    if (!initialized) {
-      axios
-        .post(
-          'https://qw6c0mxwz9.execute-api.eu-west-1.amazonaws.com/default/lightswitch',
-          JSON.stringify({
-            medium: true,
-          }),
-          {
-            headers: {
-              'X-Api-Key': 'S0a5WCywb68N075YgoTVK3TidPB11bus2vplyW9s',
-              'Content-Type': 'application/json',
-            },
-          }
-        )
-        .then(
-          R.compose(
-            setMediumPosts,
-            R.ifElse(
-              R.compose(
-                R.lt(3),
-                R.prop('length')
-              ),
-              R.take(4),
-              R.take(2)
-            ),
-            parseMediumFeed,
-            R.prop('data')
-          )
-        );
-      setInitialized(true);
-    }
-  });
-
-  return (
-    <WritingStyled id="writing">
-      <h2>Writing</h2>
-
-      <ul className="medium-posts-list">
-        {mediumPosts.length
-          ? R.map(
-              post => (
-                <li className="medium-posts-list__item" key={post.title}>
-                  <MediumPost post={post} />
-                </li>
-              ),
-              mediumPosts
-            )
-          : R.map(
-              i => (
-                <li
-                  key={`placeholder-${i}`}
-                  className="medium-posts-list__item"
-                >
-                  <div className="placeholder">
-                    <div className="placeholder-title" />
-                    <div className="placeholder-image" />
-                    <div className="placeholder-date" />
-                    <div className="placeholder-content" />
-                  </div>
-                </li>
-              ),
-              R.range(0, 2)
-            )}
-      </ul>
-
-      <div className="read-more">
-        <a href="https://medium.com/@kriswitalewski">Read more on medium.com</a>
-      </div>
-    </WritingStyled>
+const renderPlaceholders = n =>
+  R.always(
+    R.map(
+      i => (
+        <li key={`placeholder-${i}`} className="medium-posts-list__item">
+          <div className="placeholder">
+            <div className="placeholder-title" />
+            <div className="placeholder-image" />
+            <div className="placeholder-date" />
+            <div className="placeholder-content" />
+          </div>
+        </li>
+      ),
+      R.range(0, n)
+    )
   );
-};
+
+const takeNorM = (n, m) =>
+  R.ifElse(
+    R.compose(
+      R.lte(n),
+      R.prop('length')
+    ),
+    R.take(n),
+    R.take(m)
+  );
+
+const renderPosts = (n, m) =>
+  R.compose(
+    R.map(post => (
+      <li className="medium-posts-list__item" key={post.title}>
+        <MediumPost post={post} />
+      </li>
+    )),
+    takeNorM(n, m)
+  );
+
+const renderPostsOrPlaceholders = (n, m) =>
+  R.ifElse(R.isEmpty, renderPlaceholders(m), renderPosts(n, m));
+
+export const Writing = ({ mediumPosts, n, m }) => (
+  <WritingStyled id="writing">
+    <h2>Writing</h2>
+
+    <ul className="medium-posts-list">
+      {renderPostsOrPlaceholders(n, m)(mediumPosts)}
+    </ul>
+
+    <div className="read-more">
+      <a href="https://medium.com/@kriswitalewski">Read more on medium.com</a>
+    </div>
+  </WritingStyled>
+);
