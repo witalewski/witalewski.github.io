@@ -36,30 +36,27 @@ const CodeStyled = styled.section`
     margin-top: 48px;
   }
 `;
+
+const filterRepos = R.filter(
+  R.compose(
+    R.flip(R.any)(displayedRepos),
+    R.equals,
+    R.prop('name')
+  )
+);
+
 export const Code = () => {
   const [initialized, setInitialized] = useState(false);
   const [repos, setRepos] = useState([]);
 
-  useEffect(
-    R.ifElse(
-      () => initialized,
-      () => {},
-      () => {
-        axios
-          .get('https://api.github.com/users/witalewski/repos')
-          .then(({ data }) => {
-            setRepos(
-              R.filter(
-                repo => R.any(R.equals(R.prop('name', repo)), displayedRepos),
-                data
-              )
-            );
-          });
-        setInitialized(true);
-      }
-    )
-  );
-
+  useEffect(() => {
+    if (!initialized) {
+      axios
+        .get('https://api.github.com/users/witalewski/repos')
+        .then(({ data }) => setRepos(filterRepos(data)));
+      setInitialized(true);
+    }
+  });
   return (
     <CodeStyled id="code">
       <h2>Code</h2>
