@@ -57,6 +57,7 @@ export const Code = () => {
       setInitialized(true);
     }
   });
+  
   return (
     <CodeStyled id="code">
       <h2>Code</h2>

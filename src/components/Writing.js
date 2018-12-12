@@ -59,35 +59,39 @@ export const Writing = () => {
   const [initialized, setInitialized] = useState(false);
   const [mediumPosts, setMediumPosts] = useState([]);
 
-  useEffect(
-    R.ifElse(
-      () => initialized,
-      () => {},
-      () => {
-        axios
-          .post(
-            'https://qw6c0mxwz9.execute-api.eu-west-1.amazonaws.com/default/lightswitch',
-            JSON.stringify({
-              medium: true,
-            }),
-            {
-              headers: {
-                'X-Api-Key': 'S0a5WCywb68N075YgoTVK3TidPB11bus2vplyW9s',
-                'Content-Type': 'application/json',
-              },
-            }
+  useEffect(() => {
+    if (!initialized) {
+      axios
+        .post(
+          'https://qw6c0mxwz9.execute-api.eu-west-1.amazonaws.com/default/lightswitch',
+          JSON.stringify({
+            medium: true,
+          }),
+          {
+            headers: {
+              'X-Api-Key': 'S0a5WCywb68N075YgoTVK3TidPB11bus2vplyW9s',
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        .then(
+          R.compose(
+            setMediumPosts,
+            R.ifElse(
+              R.compose(
+                R.lt(3),
+                R.prop('length')
+              ),
+              R.take(4),
+              R.take(2)
+            ),
+            parseMediumFeed,
+            R.prop('data')
           )
-          .then(({ data }) =>
-            setMediumPosts(
-              (result => R.take(R.gt(result.length,3) ? 4 : 2, result))(
-                parseMediumFeed(data)
-              )
-            )
-          );
-        setInitialized(true);
-      }
-    )
-  );
+        );
+      setInitialized(true);
+    }
+  });
 
   return (
     <WritingStyled id="writing">
