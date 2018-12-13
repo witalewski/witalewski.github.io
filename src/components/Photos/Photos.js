@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import * as R from 'ramda';
 import { PhotosStyled } from './PhotosStyled';
 import { InstagramPhoto } from './InstagramPhoto';
@@ -27,11 +28,11 @@ const renderPhotos = n =>
 const renderPhotosOrPlaceholders = n =>
   R.ifElse(R.isEmpty, renderPlaceholders(n), renderPhotos(n));
 
-export const Photos = ({ photos, n }) => (
+export const Photos = ({ photos, photosCount = 15 }) => (
   <PhotosStyled id="photos">
     <h2>Photos</h2>
     <ul className="instagram-posts-list">
-      {renderPhotosOrPlaceholders(n)(photos)}
+      {renderPhotosOrPlaceholders(photosCount)(photos)}
     </ul>
     <div className="read-more">
       <a href="https://instagram.com/nihilismislove">
@@ -40,3 +41,11 @@ export const Photos = ({ photos, n }) => (
     </div>
   </PhotosStyled>
 );
+
+const mapStateToProps = state => ({
+  photos: state.photos,
+});
+
+export const PhotosConnected = connect(
+  mapStateToProps,
+)(Photos);

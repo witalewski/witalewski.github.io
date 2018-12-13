@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Header } from './components/Header/Header';
 import { Nav } from './components/Nav/Nav';
 import { FixedNav } from './components/Nav/FixedNav';
-import Main from './components/Main/Main';
+import { Main } from './components/Main/Main';
 import { Footer } from './components/Footer/Footer';
 
 const AppStyled = styled.div`

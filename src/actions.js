@@ -1,14 +1,19 @@
-export const receiveCode = response => ({
+import * as api from './api';
+
+const receiveCode = response => ({
   type: 'RECEIVE_CODE',
   response,
 });
+export const fetchCode = () => api.getCode().then(receiveCode);
 
-export const receiveWriting = response => ({
+const receiveWriting = response => ({
   type: 'RECEIVE_WRITING',
   response,
 });
+export const fetchWriting = () => api.getWriting().then(receiveWriting);
 
-export const receivePhotos = response => ({
+const receivePhotos = response => ({
   type: 'RECEIVE_PHOTOS',
   response,
 });
+export const fetchPhotos = () => api.getPhotos().then(receivePhotos);

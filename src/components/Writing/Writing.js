@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import * as R from 'ramda';
 import { WritingStyled } from './WritingStyled';
 import { MediumPost } from './MediumPost';
@@ -43,7 +44,7 @@ const renderPosts = (n, m) =>
 const renderPostsOrPlaceholders = (n, m) =>
   R.ifElse(R.isEmpty, renderPlaceholders(m), renderPosts(n, m));
 
-export const Writing = ({ posts, n, m }) => (
+export const Writing = ({ posts, n = 4, m = 2 }) => (
   <WritingStyled id="writing">
     <h2>Writing</h2>
 
@@ -56,3 +57,9 @@ export const Writing = ({ posts, n, m }) => (
     </div>
   </WritingStyled>
 );
+
+const mapStateToProps = state => ({
+  posts: state.writing,
+});
+
+export const WritingConnected = connect(mapStateToProps)(Writing);

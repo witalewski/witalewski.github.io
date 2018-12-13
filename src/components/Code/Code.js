@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import * as R from 'ramda';
 import { GitRepo } from './GitRepo';
 import { CodeStyled } from './CodeStyled';
@@ -24,12 +25,21 @@ const renderRepos = R.map(repo => (
 const renderReposOrPlaceholders = n =>
   R.ifElse(R.isEmpty, renderPlaceholders(n), renderRepos);
 
-export const Code = ({ repos, n }) => (
+export const Code = ({ repos, reposCount }) => (
   <CodeStyled id="code">
     <h2>Code</h2>
-    <ul className="repos-list">{renderReposOrPlaceholders(n)(repos)}</ul>
+    <ul className="repos-list">
+      {renderReposOrPlaceholders(reposCount)(repos)}
+    </ul>
     <div className="read-more">
       <a href="https://github.com/witalewski">See more on github.com</a>
     </div>
   </CodeStyled>
 );
+
+const mapStateToProps = state => ({
+  repos: state.code.repos,
+  reposCount: state.code.reposCount,
+});
+
+export const CodeConnected = connect(mapStateToProps)(Code);
