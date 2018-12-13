@@ -1,5 +1,13 @@
 import * as R from 'ramda';
-import { displayedRepos } from '../setup';
+
+export const displayedRepos = [
+  'grid-magic',
+  'nightcall',
+  'hooks-demo',
+  'hooks-demo-part-2',
+  'mobx-quickstart',
+  'witalewski.github.io'
+];
 
 const filterRepos = R.filter(
   R.compose(
