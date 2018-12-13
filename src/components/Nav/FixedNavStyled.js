@@ -15,19 +15,21 @@ export const FixedNavStyled = styled.header`
 
   transition: top 0.4s;
 
-  &.hidden {
-    top: -60px;
+  .title {
+    margin-right: 24px;
   }
 
-  .title {
-    margin: 32px;
+  &.hidden {
+    top: -60px;
   }
 
   .list {
     display: flex;
     flex-grow: 1;
     list-style: none;
-    margin: 0 16px;
+    font-size: 20px;
+    align-items: center;
+    margin: 0 8px;
     padding: 0;
   }
 
@@ -45,11 +47,19 @@ export const FixedNavStyled = styled.header`
   .fixed-header-title {
     margin: 0;
     font-size: 20px;
-    margin-left: 24px;
+    margin-right: 24px;
   }
 
   @media all and (max-width: ${BREAKPOINT}px) {
-    height: 48px;
+    height: 40px;
+    align-items: baseline;
+
+    transform: translateY(-8px);
+
+    .list {
+      margin: 0;
+      align-items: baseline;
+    }
 
     .title,
     .link {
