@@ -2,4 +2,4 @@
 
 Content for http://witalewski.tech
 
-Always work in progress 👨🏻‍💻🧙🏻‍♂️
+Always work in progress 👨🏻‍💻🧙
