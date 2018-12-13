@@ -23,7 +23,7 @@ const itemToItemWithContentEncoded = item => ({
   contentEncoded: getTag('content:encoded')(item),
 });
 
-const removeCdata = str => str.match(/<!\[CDATA\[(.*)\]\]>/)[1];
+const removeCdata = str => str && str.match(/<!\[CDATA\[(.*)\]\]>/)[1];
 
 const getInnerText = R.prop('innerText');
 
