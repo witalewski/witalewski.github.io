@@ -1,3 +1,5 @@
 # witalewski.github.io
 
-Content for https://witalewski.github.io and http://witalewski.tech
+Content for http://witalewski.tech
+
+Always work in progress 👨🏻‍💻🧙🏻‍♂️
