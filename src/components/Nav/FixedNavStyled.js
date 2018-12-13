@@ -54,6 +54,8 @@ export const FixedNavStyled = styled.header`
     height: 32px;
     align-items: baseline;
 
+    padding: 0 4px;
+
     .list {
       margin: 0;
       align-items: baseline;
@@ -65,7 +67,7 @@ export const FixedNavStyled = styled.header`
 
     .title,
     .link {
-      font-size: 12px;
+      font-size: 14px;
       padding: 0;
       margin: 8px;
     }
