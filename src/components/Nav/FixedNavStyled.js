@@ -13,14 +13,19 @@ export const FixedNavStyled = styled.header`
 
   border-bottom: 1px solid #d1d5da;
 
+  transition: top 0.4s;
+
+  &.hidden {
+    top: -60px;
+  }
+
   .title {
-    margin: 16px;
+    margin: 32px;
   }
 
   .list {
     display: flex;
     flex-grow: 1;
-    justify-content: flex-end;
     list-style: none;
     margin: 0 16px;
     padding: 0;

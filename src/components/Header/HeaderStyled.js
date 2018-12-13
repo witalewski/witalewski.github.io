@@ -35,11 +35,10 @@ export const HeaderStyled = styled.header`
   }
 
   @media all and (max-width: ${BREAKPOINT}px) {
-    margin-top: 48px;
-    height: 30vh;
+    height: 40vh;
 
     .hero-text {
-      top: 30vh;
+      top: 37vh;
     }
 
     .title {
