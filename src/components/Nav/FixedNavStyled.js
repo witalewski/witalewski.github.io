@@ -47,12 +47,13 @@ export const FixedNavStyled = styled.header`
     font-size: 20px;
     margin-left: 24px;
   }
+
   @media all and (max-width: ${BREAKPOINT}px) {
     height: 48px;
 
     .title,
     .link {
-      font-size: 14px;
+      font-size: 12px;
       padding: 0;
       margin: 8px;
     }
