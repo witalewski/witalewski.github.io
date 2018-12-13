@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
-import { Photos } from '../src/components/Photos';
+import { Photos } from '../src/components/Photos/Photos';
 import { decorator } from './decorator';
 
 addDecorator(decorator);

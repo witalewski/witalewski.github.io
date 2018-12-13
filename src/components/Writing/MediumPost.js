@@ -1,6 +1,6 @@
 import React from 'react';
 import { MediumPostStyled } from './MediumPostStyled';
-import { getRelativeDate } from '../utils/relativeDateFormatter';
+import { getRelativeDate } from '../../utils/relativeDateFormatter';
 
 export const MediumPost = ({ post }) => (
   <MediumPostStyled>

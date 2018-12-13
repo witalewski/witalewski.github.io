@@ -43,12 +43,12 @@ const renderPosts = (n, m) =>
 const renderPostsOrPlaceholders = (n, m) =>
   R.ifElse(R.isEmpty, renderPlaceholders(m), renderPosts(n, m));
 
-export const Writing = ({ mediumPosts, n, m }) => (
+export const Writing = ({ posts, n, m }) => (
   <WritingStyled id="writing">
     <h2>Writing</h2>
 
     <ul className="medium-posts-list">
-      {renderPostsOrPlaceholders(n, m)(mediumPosts)}
+      {renderPostsOrPlaceholders(n, m)(posts)}
     </ul>
 
     <div className="read-more">

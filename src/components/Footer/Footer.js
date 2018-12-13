@@ -1,8 +1,8 @@
 import React from 'react';
 import { FooterStyled } from './FooterStyled';
 import { SocialMediaIcon } from './SocialMediaIcon';
-import twitter from '../assets/icons/twitter.png';
-import linkedin from '../assets/icons/linkedin.png';
+import twitter from '../../assets/icons/twitter.png';
+import linkedin from '../../assets/icons/linkedin.png';
 
 export const Footer = () => (
   <FooterStyled>

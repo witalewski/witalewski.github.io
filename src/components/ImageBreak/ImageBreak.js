@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createRef } from 'react';
 import { ImageBreakStyled } from './ImageBreakStyled';
-import { BREAKPOINT } from '../global/Constants';
+import { BREAKPOINT } from '../../global/Constants';
 
 export const ImageBreak = ({ src, y }) => {
   const imageRef = createRef();

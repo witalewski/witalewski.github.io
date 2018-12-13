@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { BREAKPOINT } from '../global/Constants';
+import { BREAKPOINT } from '../../global/Constants';
 
 export const HeaderStyled = styled.header`
   width: 100vw;

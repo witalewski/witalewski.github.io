@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Header } from './components/Header';
-import { Nav } from './components/Nav';
-import { FixedNav } from './components/FixedNav';
-import { Main } from './components/Main';
-import { Footer } from './components/Footer';
+import { Header } from './components/Header/Header';
+import { Nav } from './components/Nav/Nav';
+import { FixedNav } from './components/Nav/FixedNav';
+import Main from './components/Main/Main';
+import { Footer } from './components/Footer/Footer';
 
 const AppStyled = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin-ext');

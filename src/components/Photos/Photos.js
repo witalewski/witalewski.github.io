@@ -27,11 +27,11 @@ const renderPhotos = n =>
 const renderPhotosOrPlaceholders = n =>
   R.ifElse(R.isEmpty, renderPlaceholders(n), renderPhotos(n));
 
-export const Photos = ({ instagramPhotos, n }) => (
+export const Photos = ({ photos, n }) => (
   <PhotosStyled id="photos">
     <h2>Photos</h2>
     <ul className="instagram-posts-list">
-      {renderPhotosOrPlaceholders(n)(instagramPhotos)}
+      {renderPhotosOrPlaceholders(n)(photos)}
     </ul>
     <div className="read-more">
       <a href="https://instagram.com/nihilismislove">

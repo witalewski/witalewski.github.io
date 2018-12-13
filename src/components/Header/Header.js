@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { HeaderStyled } from './HeaderStyled';
-import hero from '../assets/images/hero.jpg';
+import hero from '../../assets/images/hero.jpg';
 
 export const Header = () => {
   const [offset, setOffset] = useState(0);

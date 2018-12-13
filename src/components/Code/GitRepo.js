@@ -1,6 +1,6 @@
 import React from 'react';
 import { GitRepoStyled } from './GitRepoStyled';
-import { getRelativeDate } from '../utils/relativeDateFormatter';
+import { getRelativeDate } from '../../utils/relativeDateFormatter';
 
 const languageColors = {
   JavaScript: '#f1e05a',

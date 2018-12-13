@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
-import { Writing } from '../src/components/Writing';
+import { Writing } from '../src/components/Writing/Writing';
 import { decorator } from './decorator';
 
 addDecorator(decorator);
