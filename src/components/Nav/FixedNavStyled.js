@@ -51,14 +51,16 @@ export const FixedNavStyled = styled.header`
   }
 
   @media all and (max-width: ${BREAKPOINT}px) {
-    height: 40px;
+    height: 32px;
     align-items: baseline;
-
-    transform: translateY(-8px);
 
     .list {
       margin: 0;
       align-items: baseline;
+    }
+
+    .list-item {
+      margin: 0;
     }
 
     .title,
