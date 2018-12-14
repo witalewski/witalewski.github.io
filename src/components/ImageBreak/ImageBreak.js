@@ -5,14 +5,22 @@ import { useWindowEffect } from '../../effects/useWindowEffect';
 const getOffsetFromBoundingClientRec = bcr =>
   (bcr.y - 60 + bcr.height) / (window.innerHeight - 60 + bcr.height);
 
-const getOffset = ref =>
-  ref.current && getOffsetFromBoundingClientRec(ref.current);
+const compressOffset = (offset, minOffset, maxOffset) =>
+  Math.min(maxOffset, Math.max(maxOffset * (offset - minOffset), minOffset));
 
-export const ImageBreak = ({ src, maxOffset = 100, minOffset = 0 }) => {
+const getOffset = (ref, minOffset, maxOffset) =>
+  ref.current &&
+  compressOffset(
+    getOffsetFromBoundingClientRec(ref.current),
+    minOffset,
+    maxOffset
+  );
+
+export const ImageBreak = ({ src, minOffset = 0, maxOffset = 100 }) => {
   const imageRef = createRef();
   const [offset, setOffset] = useState(0);
 
-  useWindowEffect(() => setOffset(getOffset(imageRef)));
+  useWindowEffect(() => setOffset(getOffset(imageRef, minOffset, maxOffset)));
 
   return (
     <ImageBreakStyled>
@@ -20,10 +28,7 @@ export const ImageBreak = ({ src, maxOffset = 100, minOffset = 0 }) => {
         ref={imageRef}
         className="break-image"
         style={{
-          objectPosition: `0 ${Math.min(
-            maxOffset,
-            Math.max(maxOffset * (offset - minOffset), minOffset)
-          )}%`,
+          objectPosition: `0 ${offset}%`,
         }}
         src={src}
         alt="Kris Witalewski"
