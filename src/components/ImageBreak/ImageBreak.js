@@ -1,24 +1,19 @@
-import React, { useState, useEffect, createRef } from 'react';
+import React, { useState, createRef } from 'react';
 import { ImageBreakStyled } from './ImageBreakStyled';
-import { BREAKPOINT } from '../../global/Constants';
+import { useWindowEffect } from '../../effects/useWindowEffect';
 
-export const ImageBreak = ({ src, y }) => {
+const getOffset = imageRef =>
+  imageRef.current
+    ? (bcr =>
+        (bcr.y - 60 + bcr.height) / (window.innerHeight - 60 + bcr.height))(
+        imageRef.current.getBoundingClientRect()
+      )
+    : 0;
+export const ImageBreak = ({ src, maxOffset = 100, minOffset = 0 }) => {
   const imageRef = createRef();
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState(getOffset(imageRef));
 
-  const scrollHandler = () => {
-    if (imageRef.current) {
-      const y = window.pageYOffset || document.documentElement.scrollTop;
-      setOffset(
-        (y - imageRef.current.getBoundingClientRect().y) / window.innerHeight
-      );
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', scrollHandler);
-    return () => window.removeEventListener('scroll', scrollHandler);
-  });
+  useWindowEffect(() => setOffset(getOffset(imageRef)));
 
   return (
     <ImageBreakStyled>
@@ -26,11 +21,10 @@ export const ImageBreak = ({ src, y }) => {
         ref={imageRef}
         className="break-image"
         style={{
-          objectPosition: `0 ${
-            window.innerWidth > BREAKPOINT
-              ? 75 - y - offset * 25
-              : 70 - offset * 20
-          }%`,
+          objectPosition: `0 ${Math.min(
+            maxOffset,
+            Math.max(maxOffset * (offset - minOffset), minOffset)
+          )}%`,
         }}
         src={src}
         alt="Kris Witalewski"

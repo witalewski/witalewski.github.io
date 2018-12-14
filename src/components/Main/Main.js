@@ -10,9 +10,9 @@ import { ImageBreak } from '../ImageBreak/ImageBreak';
 export const Main = () => (
   <MainStyled>
     <WritingConnected />
-    <ImageBreak src={workspace} y={0} />
+    <ImageBreak src={workspace} />
     <CodeConnected />
-    <ImageBreak src={dinosaur} y={20} />
+    <ImageBreak src={dinosaur} maxOffset={25} />
     <PhotosConnected />
   </MainStyled>
 );
