@@ -46,7 +46,7 @@ const renderPostsOrPlaceholders = (n, m) =>
 
 export const Writing = ({ posts, n = 4, m = 2 }) => (
   <WritingStyled id="writing">
-    <h2>Writing</h2>
+    <h2 className="title">Writing</h2>
 
     <ul className="medium-posts-list">
       {renderPostsOrPlaceholders(n, m)(posts)}
