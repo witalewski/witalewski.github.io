@@ -1,9 +1,7 @@
 import React from 'react';
-import { storiesOf, addDecorator } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
 import { GitRepo } from '../src/components/Code/GitRepo';
-import { decorator } from './decorator';
-
-addDecorator(decorator);
+import '../src/index.css';
 
 storiesOf('GitRepo', module).add('with grid-magic', () => (
     <GitRepo

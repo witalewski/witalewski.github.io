@@ -1,41 +1,53 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import * as actions from './actions';
+import * as R from 'ramda';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { codeReducer } from './reducers/codeReducer';
+import { writingReducer } from './reducers/writingReducer';
+import { photosReducer } from './reducers/photosReducer';
 import { Header } from './components/Header/Header';
 import { Nav } from './components/Nav/Nav';
 import { FixedNav } from './components/Nav/FixedNav';
 import { Main } from './components/Main/Main';
 import { Footer } from './components/Footer/Footer';
 
-const AppStyled = styled.div`
-  @import url('https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin-ext');
+const reducers = {
+  code: codeReducer,
+  writing: writingReducer,
+  photos: photosReducer,
+};
 
-  font-family: 'Lato', sans-serif;
+const store = createStore(
+  combineReducers(reducers),
+  R.compose(
+    applyMiddleware(thunk),
+    process.env.NODE_ENV === 'development' &&
+      window.__REDUX_DEVTOOLS_EXTENSION__
+      ? window.__REDUX_DEVTOOLS_EXTENSION__()
+      : R.identity
+  )
+);
 
-  * {
-    box-sizing: border-box;
-  }
+[actions.fetchCode(), actions.fetchPhotos(), actions.fetchWriting()].forEach(
+  store.dispatch
+);
 
-  a,
-  a:active,
-  a:visited {
-    color: #0366d6;
-    text-decoration: none;
-  }
-`;
-export const App = () => {
-  const navItems = [
-    { label: 'Writing', href: '#writing' },
-    { label: 'Code', href: '#code' },
-    { label: 'Photos', href: '#photos' },
-  ];
+const navItems = [
+  { label: 'Writing', href: '#writing' },
+  { label: 'Code', href: '#code' },
+  { label: 'Photos', href: '#photos' },
+];
 
-  return (
-    <AppStyled>
+export const App = () => (
+  <Provider store={store}>
+    <div>
       <Header />
       <Nav items={navItems} />
       <FixedNav items={navItems} />
       <Main />
       <Footer />
-    </AppStyled>
-  );
-};
+    </div>
+  </Provider>
+);
