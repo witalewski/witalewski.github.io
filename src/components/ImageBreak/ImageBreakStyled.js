@@ -6,8 +6,8 @@ export const ImageBreakStyled = styled.div`
     width: 100%;
     height: 200px;
 
-    margin-top: 96px;
-    margin-bottom: 96px;
+    margin-top: 72px;
+    margin-bottom: 72px;
 
     object-fit: cover;
   }

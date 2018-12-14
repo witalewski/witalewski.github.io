@@ -27,7 +27,7 @@ const renderReposOrPlaceholders = n =>
 
 export const Code = ({ repos, reposCount }) => (
   <CodeStyled id="code">
-    <h2>Code</h2>
+    <h2 className="title">Code</h2>
     <ul className="repos-list">
       {renderReposOrPlaceholders(reposCount)(repos)}
     </ul>

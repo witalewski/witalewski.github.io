@@ -16,14 +16,14 @@ export const Header = () => {
     <HeaderStyled>
       <img
         className="hero-image"
-        style={{ objectPosition: `0 calc(${50 - offset * 50}%` }}
+        style={{ objectPosition: `0 calc(${48 - offset * 48}%` }}
         src={hero}
         alt="Kris Witalewski"
       />
       <div className="hero-text">
         <h1 className="title">Kris Witalewski</h1>
         <summary className="description">
-          Developing advanced web applications with HTML5, CSS3, JavaScript (ES6+), React &amp; Redux + Thunk | MobX
+          Developing advanced web applications with JavaScript (ES6+), React &amp; Redux + Thunk | MobX
         </summary>
       </div>
     </HeaderStyled>

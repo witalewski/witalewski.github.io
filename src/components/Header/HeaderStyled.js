@@ -6,6 +6,8 @@ export const HeaderStyled = styled.header`
 
   height: 60vh;
 
+  margin-bottom: 72px;
+
   .hero-image {
     width: 100%;
     height: 100%;
@@ -36,6 +38,8 @@ export const HeaderStyled = styled.header`
 
   @media all and (max-width: ${BREAKPOINT}px) {
     height: 40vh;
+
+    margin-bottom: 24px;
 
     .hero-text {
       top: 37vh;

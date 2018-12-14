@@ -30,7 +30,7 @@ const renderPhotosOrPlaceholders = n =>
 
 export const Photos = ({ photos, photosCount = 15 }) => (
   <PhotosStyled id="photos">
-    <h2>Photography</h2>
+    <h2 className="title">Photography</h2>
     <ul className="instagram-posts-list">
       {renderPhotosOrPlaceholders(photosCount)(photos)}
     </ul>

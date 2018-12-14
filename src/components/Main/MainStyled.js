@@ -6,7 +6,7 @@ export const MainStyled = styled.main`
   }
 
   section {
-    padding: 48px 0;
+    padding: 48px 0 72px;
 
     max-width: 960px;
     margin: auto;
