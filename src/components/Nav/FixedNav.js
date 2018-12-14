@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
 import { BREAKPOINT } from '../../global/Constants';
+import { getPageYOffset } from '../../utils/getPageYOffset';
 import { FixedNavStyled } from './FixedNavStyled';
-import { useWindowEvent } from '../../effects/useWindowEvent';
+import { useWindowEffect } from '../../effects/useWindowEffect';
+
+const getUseSmallHeader = () =>
+  getPageYOffset() + 60 > window.innerHeight * 0.6 ||
+  window.innerWidth <= BREAKPOINT;
 
 export const FixedNav = ({ items }) => {
-  const [useSmallHeader, setUseSmallHeader] = useState(
-    window.pageYOffset + 60 > window.innerHeight * 0.6 ||
-      window.innerWidth <= BREAKPOINT
-  );
+  const [useSmallHeader, setUseSmallHeader] = useState(getUseSmallHeader());
 
-  const handleWindowEvent = () => {
-    const y = window.pageYOffset || document.documentElement.scrollTop;
-    setUseSmallHeader(
-      y + 60 > window.innerHeight * 0.6 || window.innerWidth <= BREAKPOINT
-    );
-  };
-
-  useWindowEvent(handleWindowEvent);
+  useWindowEffect(() => setUseSmallHeader(getUseSmallHeader()));
 
   return (
     <FixedNavStyled className={useSmallHeader || 'hidden'}>

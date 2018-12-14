@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { HeaderStyled } from './HeaderStyled';
+import { getPageYOffset } from '../../utils/getPageYOffset';
+import { useWindowEffect } from '../../effects/useWindowEffect';
 import hero from '../../assets/images/hero.jpg';
 
+const getHeaderImageOffset = () =>
+  getPageYOffset() / (window.innerHeight * 0.6);
+
 export const Header = () => {
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState(getHeaderImageOffset());
 
-  const scrollHandler = () => {
-    const y = window.pageYOffset || document.documentElement.scrollTop;
-    setOffset(y / (window.innerHeight * 0.6));
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', scrollHandler);
-    return () => window.removeEventListener('scroll', scrollHandler);
-  });
+  useWindowEffect(() => setOffset(getHeaderImageOffset()));
 
   return (
     <HeaderStyled>

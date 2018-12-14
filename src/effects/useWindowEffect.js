@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export const useWindowEvent = handler =>
+export const useWindowEffect = handler =>
   useEffect(() => {
     window.addEventListener('scroll', handler);
     window.addEventListener('resize', handler);
