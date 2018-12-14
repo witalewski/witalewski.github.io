@@ -15,7 +15,7 @@ const getOffset = R.ifElse(
 
 export const ImageBreak = ({ src, maxOffset = 100, minOffset = 0 }) => {
   const imageRef = createRef();
-  const [offset, setOffset] = useState(getOffset(imageRef));
+  const [offset, setOffset] = useState(0);
 
   useWindowEffect(() => setOffset(getOffset(imageRef)));
 
