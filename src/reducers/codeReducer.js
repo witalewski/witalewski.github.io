@@ -1,4 +1,5 @@
 import * as R from 'ramda';
+import { RECEIVE_CODE } from '../actions';
 
 export const displayedRepos = [
   'grid-magic',
@@ -6,7 +7,7 @@ export const displayedRepos = [
   'hooks-demo',
   'hooks-demo-part-2',
   'mobx-quickstart',
-  'witalewski.github.io'
+  'witalewski.github.io',
 ];
 
 const filterRepos = R.filter(
@@ -29,7 +30,7 @@ export const defaultState = {
 
 export const codeReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case 'RECEIVE_CODE':
+    case RECEIVE_CODE:
       return {
         ...state,
         repos: processReposResponse(action.response),
