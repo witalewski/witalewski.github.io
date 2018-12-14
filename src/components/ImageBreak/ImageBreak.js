@@ -1,14 +1,18 @@
 import React, { useState, createRef } from 'react';
+import * as R from 'ramda';
 import { ImageBreakStyled } from './ImageBreakStyled';
 import { useWindowEffect } from '../../effects/useWindowEffect';
 
-const getOffset = imageRef =>
-  imageRef.current
-    ? (bcr =>
-        (bcr.y - 60 + bcr.height) / (window.innerHeight - 60 + bcr.height))(
-        imageRef.current.getBoundingClientRect()
-      )
-    : 0;
+const getOffset = R.ifElse(
+  R.propSatisfies(R.isNil, 'current'),
+  R.always(0),
+  R.compose(
+    bcr => (bcr.y - 60 + bcr.height) / (window.innerHeight - 60 + bcr.height),
+    i => i.getBoundingClientRect(),
+    R.prop('current')
+  )
+);
+
 export const ImageBreak = ({ src, maxOffset = 100, minOffset = 0 }) => {
   const imageRef = createRef();
   const [offset, setOffset] = useState(getOffset(imageRef));
