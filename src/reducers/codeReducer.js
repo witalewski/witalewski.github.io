@@ -4,9 +4,7 @@ import { RECEIVE_CODE } from '../actions';
 export const displayedRepos = [
   'grid-magic',
   'nightcall',
-  'hooks-demo',
   'react-wombat',
-  'mobx-quickstart',
   'witalewski.github.io',
 ];
 
