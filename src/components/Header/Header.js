@@ -23,7 +23,7 @@ export const Header = () => {
       <div className="hero-text">
         <h1 className="title">Kris Witalewski</h1>
         <summary className="description">
-          Developing advanced web applications with JavaScript (ES6+), React &amp; Redux + Thunk | MobX
+          Developing advanced web applications with JavaScript (ES6+), React &amp; Redux | MobX
         </summary>
       </div>
     </HeaderStyled>
