@@ -1,1 +1,1 @@
-export const BREAKPOINT = 768; 
+export const BREAKPOINT = 640; 

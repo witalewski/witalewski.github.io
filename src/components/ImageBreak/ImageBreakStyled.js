@@ -5,26 +5,21 @@ export const ImageBreakStyled = styled.div`
   width: 100%;
   height: 200px;
 
+  margin-top: 72px;
+  margin-bottom: 72px;
+
   background: #f0f0f0;
 
   .break-image {
     width: 100%;
-    height: 200px;
-
-    margin-top: 72px;
-    margin-bottom: 72px;
-
+    height: 100%;
     object-fit: cover;
   }
+  
   @media all and (max-width: ${BREAKPOINT}px) {
-    .break-image {
-      width: 100%;
-      height: 50px;
+    height: 50px;
 
-      margin-top: 24px;
-      margin-bottom: 24px;
-
-      object-fit: cover;
-    }
+    margin-top: 36px;
+    margin-bottom: 36px;
   }
 `;
