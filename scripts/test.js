@@ -38,14 +38,15 @@ function isInMercurialRepository() {
 }
 
 // Watch unless on CI, in coverage mode, or explicitly running all tests
-if (
-  !process.env.CI &&
-  argv.indexOf('--coverage') === -1 &&
-  argv.indexOf('--watchAll') === -1
-) {
+if (!process.env.CI) {
   // https://github.com/facebook/create-react-app/issues/5210
   const hasSourceControl = isInGitRepository() || isInMercurialRepository();
   argv.push(hasSourceControl ? '--watch' : '--watchAll');
+  jest.run(argv);
+} else {
+  execSync(
+    `yarn jest --coverage --coverageReporters=text-lcov ${argv.join(
+      ' '
+    )} | coveralls`
+  );
 }
-
-jest.run(argv);
