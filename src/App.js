@@ -1,5 +1,4 @@
 import React from 'react';
-import * as actions from './actions';
 import * as R from 'ramda';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
@@ -10,7 +9,7 @@ import { photosReducer } from './reducers/photosReducer';
 import { Header } from './components/Header/Header';
 import { Nav } from './components/Nav/Nav';
 import { FixedNav } from './components/Nav/FixedNav';
-import { Main } from './components/Main/Main';
+import { default as Main } from './components/Main/Main';
 import { Footer } from './components/Footer/Footer';
 
 const reducers = {
@@ -28,10 +27,6 @@ const store = createStore(
       ? window.__REDUX_DEVTOOLS_EXTENSION__()
       : R.identity
   )
-);
-
-[actions.fetchCode(), actions.fetchPhotos(), actions.fetchWriting()].forEach(
-  store.dispatch
 );
 
 const navItems = [

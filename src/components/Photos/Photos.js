@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import * as R from 'ramda';
 import { PhotosStyled } from './PhotosStyled';
 import { InstagramPhoto } from './InstagramPhoto';
@@ -41,11 +40,3 @@ export const Photos = ({ photos, photosCount = 15 }) => (
     </div>
   </PhotosStyled>
 );
-
-const mapStateToProps = state => ({
-  photos: state.photos,
-});
-
-export const PhotosConnected = connect(
-  mapStateToProps,
-)(Photos);

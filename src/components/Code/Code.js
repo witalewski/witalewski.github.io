@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import * as R from 'ramda';
 import { GitRepo } from './GitRepo';
 import { CodeStyled } from './CodeStyled';
@@ -36,10 +35,3 @@ export const Code = ({ repos, reposCount }) => (
     </div>
   </CodeStyled>
 );
-
-const mapStateToProps = state => ({
-  repos: state.code.repos,
-  reposCount: state.code.reposCount,
-});
-
-export const CodeConnected = connect(mapStateToProps)(Code);

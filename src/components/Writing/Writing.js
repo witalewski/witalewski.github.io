@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import * as R from 'ramda';
 import { WritingStyled } from './WritingStyled';
 import { MediumPost } from './MediumPost';
@@ -57,9 +56,3 @@ export const Writing = ({ posts, n = 4, m = 2 }) => (
     </div>
   </WritingStyled>
 );
-
-const mapStateToProps = state => ({
-  posts: state.writing,
-});
-
-export const WritingConnected = connect(mapStateToProps)(Writing);
