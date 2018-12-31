@@ -3,7 +3,7 @@ import { RECEIVE_CODE } from '../actions';
 
 export const displayedRepos = [
   'grid-magic',
-  'nightcall',
+  'travel-map',
   'react-wombat',
   'witalewski.github.io',
 ];
