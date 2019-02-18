@@ -24,7 +24,7 @@ export const FixedNav = ({ items }) => {
           </li>
         ))}
       </ul>
-      <h1 className="title">Kris Witalewski</h1>
+      <h1 className="title">Kris Adam Witalewski</h1>
     </FixedNavStyled>
   );
 };

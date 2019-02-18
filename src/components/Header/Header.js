@@ -18,13 +18,12 @@ export const Header = () => {
         className="hero-image"
         style={{ objectPosition: `0 calc(${48 - offset * 48}%` }}
         src={hero}
-        alt="Kris Witalewski"
+        alt="Kris Adam Witalewski"
       />
       <div className="hero-text">
-        <h1 className="title">Kris Witalewski</h1>
+        <h1 className="title">Kris Adam Witalewski</h1>
         <summary className="description">
-          Developing advanced web applications with JavaScript (ES6+,
-          TypeScript), React &amp; Redux | MobX
+          Developing advanced web applications with JavaScript | TypeScript, React, Redux | MobX & Electron
         </summary>
       </div>
     </HeaderStyled>

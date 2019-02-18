@@ -5,7 +5,7 @@ export const displayedRepos = [
   'grid-magic',
   'travel-map',
   'react-wombat',
-  'witalewski.github.io',
+  'golf-player',
 ];
 
 const filterRepos = R.filter(

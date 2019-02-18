@@ -7,7 +7,7 @@ export const SocialMediaIcon = ({ name, href, source }) => (
       <img
         className="icon-image"
         src={source}
-        alt={`Kris Witalewski on ${name}`}
+        alt={`Kris Adam Witalewski on ${name}`}
       />
     </a>
   </SocialMediaIconStyled>

@@ -31,7 +31,7 @@ export const ImageBreak = ({ src, minOffset = 0, maxOffset = 100 }) => {
           objectPosition: `0 ${offset}%`,
         }}
         src={src}
-        alt="Kris Witalewski"
+        alt="Kris Adam Witalewski"
       />
     </ImageBreakStyled>
   );
