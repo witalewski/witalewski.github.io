@@ -3,4 +3,5 @@ node_js:
   - 'node'
 
 github_token: $DEPLOY_TOKEN
+committer_from_gh: true
 script: yarn build && yarn deploy
