@@ -2,8 +2,7 @@ language: node_js
 node_js:
   - 'node'
 
-build:
-  script: yarn build
+script: yarn build
 
 deploy:
   provider: pages
@@ -12,5 +11,6 @@ deploy:
   skip_cleanup: true
   github_token: $DEPLOY_TOKEN
   keep_history: true
+  verbose: true
   on:
     branch: dev
