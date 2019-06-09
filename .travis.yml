@@ -1,3 +1,13 @@
 language: node_js
 node_js:
-  - "node"
+  - 'node'
+
+deploy:
+  script:
+    - yarn build && yarn deploy
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 hour
+  only:
+    - dev
