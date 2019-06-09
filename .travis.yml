@@ -11,6 +11,5 @@ deploy:
   skip_cleanup: true
   github_token: $DEPLOY_TOKEN
   keep_history: true
-  verbose: true
   on:
     branch: dev
