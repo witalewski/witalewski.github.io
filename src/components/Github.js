@@ -1,6 +1,6 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
 
 const GithubStyled = styled.ul`
   display: flex;
@@ -34,7 +34,7 @@ const RepoNameStyled = styled.h3`
 `;
 
 const RepoDescriptionStyled = styled.p`
-  font-size: 12px;
+  font-size: 14px;
   color: #586069;
   margin: 8px 0 16px;
 `;

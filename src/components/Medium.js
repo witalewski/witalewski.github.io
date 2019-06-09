@@ -37,7 +37,7 @@ const MediumItemStyled = styled.li`
 `;
 
 const PostTitle = styled.h3`
-  height: 48px;
+  min-height: 48px;
   margin: 0 0 18px;
 
   font-weight: bold;
