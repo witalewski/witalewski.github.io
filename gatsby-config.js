@@ -7,7 +7,19 @@
 require('dotenv/config');
 
 module.exports = {
+  siteMetadata: {
+    title: 'Adam Witalewski',
+    description:
+      'Developing advanced front-end applications with JavaScript, React and Redux.',
+    siteUrl: 'https://witalewski.tech',
+    image:
+      'https://witalewski.tech/static/avatar-b52c3c6ea42ea0ce50c76bb5c8cdee85.jpg',
+    social: {
+      twitter: '@awitalewski',
+    },
+  },
   plugins: [
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-medium',
       options: {

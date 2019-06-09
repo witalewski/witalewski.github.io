@@ -1,5 +1,11 @@
-import React from "react";
-import Main from "../components/Main";
-import "../index.css";
+import React from 'react';
+import Main from '../components/Main';
+import SiteMetadata from '../components/SiteMetadata';
+import '../index.css';
 
-export default () => <Main />;
+export default () => (
+  <>
+    <SiteMetadata />
+    <Main />
+  </>
+);
