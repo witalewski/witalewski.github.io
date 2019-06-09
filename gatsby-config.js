@@ -5,7 +5,6 @@
  */
 
 require('dotenv/config');
-console.log('Using GH Token: ', process.env.GH_TOKEN);
 
 module.exports = {
   plugins: [
