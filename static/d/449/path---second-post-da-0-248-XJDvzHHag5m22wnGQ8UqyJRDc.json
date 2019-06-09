@@ -1,1 +1,0 @@
-{"data":{"markdownRemark":{"html":"<p>Second Post content</p>","frontmatter":{"title":"Second Post"}}},"pageContext":{"isCreatedByStatefulCreatePages":false,"pathSlug":"/second-post","prev":{"frontmatter":{"path":"/first-post"}},"next":{"frontmatter":{"path":"/third-post"}}}}
