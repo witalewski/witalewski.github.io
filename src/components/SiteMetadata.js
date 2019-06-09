@@ -32,6 +32,7 @@ const SiteMetadata = ({ pathname }) => {
     <Helmet defaultTitle={title} titleTemplate={`%s | ${title}`}>
       <html lang="en" />
       <link rel="canonical" href={`${siteUrl}${pathname}`} />
+      <link rel="icon" type="image/png" href={image} />
       <meta name="docsearch:version" content="2.0" />
       <meta
         name="viewport"
