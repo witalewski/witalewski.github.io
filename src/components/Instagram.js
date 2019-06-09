@@ -1,6 +1,6 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
 
 const InstagramStyled = styled.ul`
   display: flex;
@@ -31,6 +31,8 @@ const query = graphql`
     allInstaNode(sort: { fields: [timestamp], order: DESC }) {
       edges {
         node {
+          id
+          caption
           thumbnails {
             src
             config_width
@@ -49,12 +51,16 @@ export const Instagram = () => (
       const { edges } = data.allInstaNode;
       return (
         <InstagramStyled>
-          {edges.map(({ node }) => {
-            const { thumbnails } = node;
+          {edges.map(({ node: { thumbnails, id, caption } }) => {
             const { src } = thumbnails.find(el => el.config_width === 640);
             return (
               <InstagramItemStyled key={src}>
-                <InstagramThumbnail src={src} />
+                <a href={`https://www.instagram.com/p/${id}/`}>
+                  <InstagramThumbnail
+                    src={src}
+                    alt={`Instagram image: ${caption} | @nihilismislove | Adam Witalewski`}
+                  />
+                </a>
               </InstagramItemStyled>
             );
           })}

@@ -1,6 +1,6 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
 
 const MediumStyled = styled.ul`
   display: flex;
@@ -81,24 +81,33 @@ export const Medium = () => (
       const { edges } = data.allMediumPost;
       return (
         <MediumStyled>
-          {edges.map(({ node }) => {
-            const { title, uniqueSlug, virtuals } = node;
-            const { imageId } = virtuals.previewImage;
-            const { subtitle } = virtuals;
-            return (
-              <MediumItemStyled key={title}>
-                <LinkStyled
-                  href={`https://medium.com/@awitalewski/${uniqueSlug}`}
-                >
-                  <PostTitle>{title}</PostTitle>
-                  <MediumThumbnail
-                    src={`https://cdn-images-1.medium.com/max/360/${imageId}`}
-                  />
-                  <DescriptionStyled>{subtitle}</DescriptionStyled>
-                </LinkStyled>
-              </MediumItemStyled>
-            );
-          })}
+          {edges.map(
+            ({
+              node: {
+                title,
+                uniqueSlug,
+                virtuals: {
+                  subtitle,
+                  previewImage: { imageId },
+                },
+              },
+            }) => {
+              return (
+                <MediumItemStyled key={title}>
+                  <LinkStyled
+                    href={`https://medium.com/@awitalewski/${uniqueSlug}`}
+                  >
+                    <PostTitle>{title}</PostTitle>
+                    <MediumThumbnail
+                      src={`https://cdn-images-1.medium.com/max/360/${imageId}`}
+                      alt={`Illustration for blog post: ${title}`}
+                    />
+                    <DescriptionStyled>{subtitle}</DescriptionStyled>
+                  </LinkStyled>
+                </MediumItemStyled>
+              );
+            }
+          )}
         </MediumStyled>
       );
     }}
