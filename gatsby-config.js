@@ -16,7 +16,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-github-pinned',
       options: {
-        apiToken: 'aa29261c428906758bf2ce36af650b59b4da3493',
+        apiToken: '64a192f3c6b7ad2f12fab1d79955e62e1581d7c1',
       },
     },
     {
