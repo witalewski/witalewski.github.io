@@ -92,7 +92,7 @@ export const Medium = () => (
                 >
                   <PostTitle>{title}</PostTitle>
                   <MediumThumbnail
-                    src={`https://cdn-images-1.medium.com/max/600/${imageId}`}
+                    src={`https://cdn-images-1.medium.com/max/360/${imageId}`}
                   />
                   <DescriptionStyled>{subtitle}</DescriptionStyled>
                 </LinkStyled>
