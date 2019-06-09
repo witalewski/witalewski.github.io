@@ -19,6 +19,7 @@ const SiteMetadata = () => {
         siteMetadata {
           siteUrl
           title
+          description
           image
           social {
             twitter
