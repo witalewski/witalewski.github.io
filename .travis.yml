@@ -2,14 +2,8 @@ language: node_js
 node_js:
   - 'node'
 
-jobs: -deploy
-
 deploy:
-  script:
-    - yarn build && yarn deploy
-  artifacts:
-    paths:
-      - public
-    expire_in: 1 hour
-  only:
-    - dev
+  - provider: script
+    script: yarn build && yarn deploy
+    on:
+      branch: dev
