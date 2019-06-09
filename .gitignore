@@ -26,3 +26,5 @@ yarn-error.log*
 .cache
 .storybook
 /storybook-static
+
+.env

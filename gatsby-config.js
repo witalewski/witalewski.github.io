@@ -4,6 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+require('dotenv/config');
+
 module.exports = {
   plugins: [
     {
@@ -16,7 +18,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-github-pinned',
       options: {
-        apiToken: '529becd7f91a8622df5a25d634cd8acaf02dc705',
+        apiToken: `${process.env.GH_TOKEN}`,
       },
     },
     {
