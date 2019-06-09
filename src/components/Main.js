@@ -1,18 +1,18 @@
-import React from "react";
-import { Medium } from "./Medium";
-import { Github } from "./Github";
-import { Instagram } from "./Instagram";
+import React from 'react';
+import { Medium } from './Medium';
+import { Github } from './Github';
+import { Instagram } from './Instagram';
 import {
   TitleStyled,
   SectionsStyled,
   SectionTitle,
-  AvatarStyled
-} from "./MainStyled";
-import avatar from "../assets/avatar.jpg";
+  AvatarStyled,
+} from './MainStyled';
+import avatar from '../assets/avatar.jpg';
 
 export const Main = () => (
   <SectionsStyled>
-    <AvatarStyled src={avatar} />
+    <AvatarStyled src={avatar} alt="Adam Witalewski | Avatar | Photo" />
     <TitleStyled>Adam Witalewski</TitleStyled>
     <SectionTitle>Writing</SectionTitle>
     <Medium />
