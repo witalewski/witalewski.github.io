@@ -16,10 +16,12 @@ const InstagramStyled = styled.ul`
 `;
 
 const InstagramItemStyled = styled.li`
-  flex-basis: calc(33.33% - 1.33px);
+  flex-basis: calc(33.33%);
 
   margin: 0;
   padding: 0;
+
+  border: 1.33px solid white;
 `;
 
 const InstagramThumbnail = styled.img`
