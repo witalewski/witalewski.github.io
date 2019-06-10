@@ -29,22 +29,6 @@ const SiteMetadata = () => {
     }
   `);
 
-  if (typeof window !== 'undefined') {
-    (function(h, o, t, j, a, r) {
-      h.hj =
-        h.hj ||
-        function() {
-          (h.hj.q = h.hj.q || []).push(arguments);
-        };
-      h._hjSettings = { hjid: 1355687, hjsv: 6 };
-      a = o.getElementsByTagName('head')[0];
-      r = o.createElement('script');
-      r.async = 1;
-      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-      a.appendChild(r);
-    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
-  }
-
   return (
     <Helmet defaultTitle={title} titleTemplate={`%s | ${title}`}>
       <html lang="en" />
@@ -71,6 +55,19 @@ const SiteMetadata = () => {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+
+      <script>
+        {`
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:1355687,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        `}
+      </script>
     </Helmet>
   );
 };
