@@ -29,7 +29,7 @@ const SiteMetadata = () => {
     }
   `);
 
-  if (window) {
+  if (typeof window !== 'undefined') {
     (function(h, o, t, j, a, r) {
       h.hj =
         h.hj ||
