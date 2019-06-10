@@ -4,14 +4,15 @@ node_js:
 
 jobs:
   include:
-    - script: yarn test
-    - script: yarn start & wait-on http://localhost:8080
-    - script: yarn cypress run
+    - stage: setup
+      script: yarn && yarn start & wait-on http://localhost:8080
+    - stage: test
+      script: yarn cypress run
     - stage: build
-    - script: yarn build
+      script: yarn build
     - stage: deploy
-      script: skip
-      provider: pages
+      deploy:
+        provider: pages
         target_branch: master
         local_dir: public
         skip_cleanup: true
