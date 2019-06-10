@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const BioStyled = styled.div`
   width: 800px;
   max-width: 90%;
-  margin: 16px 0 0;
+  margin: 64px 0 0;
 `;
 
 const ParagraphStyled = styled.p`
