@@ -96,6 +96,7 @@ export const Medium = () => (
                 <MediumItemStyled key={title}>
                   <LinkStyled
                     href={`https://medium.com/@awitalewski/${uniqueSlug}`}
+                    rel="noopener"
                   >
                     <PostTitle>{title}</PostTitle>
                     <MediumThumbnail

@@ -55,7 +55,7 @@ export const Instagram = () => (
             const { src } = thumbnails.find(el => el.config_width === 640);
             return (
               <InstagramItemStyled key={src}>
-                <a href={`https://www.instagram.com/p/${id}/`}>
+                <a href={`https://www.instagram.com/p/${id}/`} rel="noopener">
                   <InstagramThumbnail
                     src={src}
                     alt={`Instagram image: ${caption} | @nihilismislove | Adam Witalewski`}

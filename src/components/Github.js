@@ -65,7 +65,7 @@ export const Github = () => (
             const { name, url, description } = node;
             return (
               <GithubItemStyled key={url}>
-                <LinkStyled href={url}>
+                <LinkStyled href={url} rel="noopener">
                   <RepoNameStyled>{name}</RepoNameStyled>
                   <RepoDescriptionStyled>{description}</RepoDescriptionStyled>
                 </LinkStyled>
