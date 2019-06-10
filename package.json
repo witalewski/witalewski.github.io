@@ -1,6 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
-  "description": "A simplified bare-bones starter for Gatsby",
+  "name": "witalewski.github.io",
+  "description": "Content for http://witalewski.tech. Always work in progress 👨🏻‍💻🧙",
+  "private": true,
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
