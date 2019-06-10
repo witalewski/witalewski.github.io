@@ -9,7 +9,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "cy:run": "cypress run",
+    "test": "start-server-and-test start http://localhost:8000 cy:run",
     "postbuild": "node bin/writeCNAME.js",
     "deploy": "gh-pages -b master -d public"
   },
@@ -30,6 +31,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "start-server-and-test": "^1.9.1",
     "styled-components": "^4.3.1",
     "wait-on": "^3.2.0"
   },

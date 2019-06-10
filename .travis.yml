@@ -6,7 +6,7 @@ jobs:
   include:
     - stage: setup
       script: yarn && yarn start
-      script: yarn wait-on http://localhost:8080
+      script: yarn wait-on http://localhost:8000
     - stage: test
       script: yarn cypress run
     - stage: build
