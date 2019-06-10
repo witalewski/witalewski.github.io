@@ -54,7 +54,9 @@ export const Instagram = () => (
       return (
         <InstagramStyled>
           {edges.map(({ node: { thumbnails, id, caption } }) => {
-            const { src } = thumbnails.find(el => el.config_width === 640);
+            const { src } = thumbnails.find(
+              el => el.config_width === 320
+            );
             return (
               <InstagramItemStyled key={src}>
                 <a href={`https://www.instagram.com/p/${id}/`} rel="noopener">
