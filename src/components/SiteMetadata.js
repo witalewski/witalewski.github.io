@@ -36,6 +36,8 @@ const SiteMetadata = () => {
       <link rel="icon" type="image/png" href={image} />
       <link rel="preconnect" href="https://cdn-images-1.medium.com" />
       <link rel="preconnect" href="https://scontent-ort2-1.cdninstagram.com" />
+      <link rel="preconnect" href="https://vars.hotjar.com" />
+      <link rel="preconnect" href="https://script.hotjar.com" />
       <script
         async
         src="https://www.googletagmanager.com/gtag/js?id=UA-131029592-1"
