@@ -4,7 +4,7 @@ export const TitleStyled = styled.h1`
   margin: 16px 0 0;
 
   font-family: 'Fira Sans', 'Helvetica', 'Arial', sans-serif;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 32px;
   text-align: center;
 `;
@@ -22,7 +22,7 @@ export const SectionTitle = styled.h2`
   }
 
   font-family: 'Fira Sans', 'Helvetica', 'Arial', sans-serif;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 24px;
 `;
 
