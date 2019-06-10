@@ -34,6 +34,17 @@ const SiteMetadata = () => {
       <html lang="en" />
       <link rel="canonical" href={siteUrl} />
       <link rel="icon" type="image/png" href={image} />
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-131029592-1"
+      ></script>
+      <script>{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-131029592-1');
+        `}</script>
       <meta name="docsearch:version" content="2.0" />
       <meta name="description" content={description} />
       <meta
