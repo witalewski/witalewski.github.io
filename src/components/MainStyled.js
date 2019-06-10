@@ -28,7 +28,6 @@ export const SectionTitle = styled.h2`
 
 export const AvatarStyled = styled.img`
   margin: 40px 0 0;
-  width: 360px;
   max-width: 60%;
   border-radius: 360px;
   border: 1px solid black;
