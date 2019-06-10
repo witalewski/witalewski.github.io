@@ -5,7 +5,8 @@ node_js:
 jobs:
   include:
     - stage: setup
-      script: yarn && yarn start & wait-on http://localhost:8080
+      script: yarn && yarn start
+      script: yarn wait-on http://localhost:8080
     - stage: test
       script: yarn cypress run
     - stage: build
