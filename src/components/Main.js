@@ -2,6 +2,7 @@ import React from 'react';
 import { Medium } from './Medium';
 import { Github } from './Github';
 import { Instagram } from './Instagram';
+import { Bio } from './Bio';
 import {
   TitleStyled,
   SectionsStyled,
@@ -14,6 +15,7 @@ export const Main = () => (
   <SectionsStyled>
     <AvatarStyled src={avatar} alt="Adam Witalewski | Avatar | Photo" />
     <TitleStyled>Adam Witalewski</TitleStyled>
+    <Bio/>
     <SectionTitle>Writing</SectionTitle>
     <Medium />
     <SectionTitle>Code</SectionTitle>
