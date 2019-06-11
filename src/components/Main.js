@@ -13,9 +13,14 @@ import avatar from '../assets/avatar.jpg';
 
 export const Main = () => (
   <SectionsStyled>
-    <AvatarStyled src={avatar} alt="Adam Witalewski | Avatar | Photo" />
+    <AvatarStyled
+      src={avatar}
+      alt="Adam Witalewski | Avatar | Photo"
+      width="320"
+      height="320"
+    />
     <TitleStyled>Adam Witalewski</TitleStyled>
-    <Bio/>
+    <Bio />
     <SectionTitle>Writing</SectionTitle>
     <Medium />
     <SectionTitle>Code</SectionTitle>

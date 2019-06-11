@@ -54,15 +54,15 @@ export const Instagram = () => (
       return (
         <InstagramStyled>
           {edges.map(({ node: { thumbnails, id, caption } }) => {
-            const { src } = thumbnails.find(
-              el => el.config_width === 320
-            );
+            const { src } = thumbnails.find(el => el.config_width === 320);
             return (
               <InstagramItemStyled key={src}>
                 <a href={`https://www.instagram.com/p/${id}/`} rel="noopener">
                   <InstagramThumbnail
                     src={src}
                     alt={`Instagram image: ${caption} | @nihilismislove | Adam Witalewski`}
+                    width="320"
+                    height="320"
                   />
                 </a>
               </InstagramItemStyled>
