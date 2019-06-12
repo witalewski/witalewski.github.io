@@ -16,8 +16,6 @@ export const Main = () => (
     <AvatarStyled
       src={avatar}
       alt="Adam Witalewski | Avatar | Photo"
-      width="320"
-      height="320"
     />
     <TitleStyled>Adam Witalewski</TitleStyled>
     <Bio />

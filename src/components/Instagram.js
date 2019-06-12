@@ -61,8 +61,6 @@ export const Instagram = () => (
                   <InstagramThumbnail
                     src={src}
                     alt={`Instagram image: ${caption} | @nihilismislove | Adam Witalewski`}
-                    width="320"
-                    height="320"
                   />
                 </a>
               </InstagramItemStyled>
