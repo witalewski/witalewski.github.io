@@ -2,25 +2,23 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
-const query = graphql`
-  query SiteMetadata {
-    site {
-      siteMetadata {
-        siteUrl
-        title
-        description
-        image
-        social {
-          twitter
-        }
-      }
-    }
-  }
-`;
-
 export const SiteMetadata = () => (
   <StaticQuery
-    query={query}
+    query={graphql`
+      query SiteMetadata {
+        site {
+          siteMetadata {
+            siteUrl
+            title
+            description
+            image
+            social {
+              twitter
+            }
+          }
+        }
+      }
+    `}
     render={({
       site: {
         siteMetadata: {
