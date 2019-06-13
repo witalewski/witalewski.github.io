@@ -34,7 +34,10 @@ const SiteMetadata = () => {
       <html lang="en" />
       <link rel="canonical" href={siteUrl} />
       <link rel="icon" type="image/png" href={image} />
-      <meta http-equiv="cache-control" content="public,max-age=31536000,immutable" />
+      <meta
+        httpEquiv="cache-control"
+        content="public,max-age=31536000,immutable"
+      />
       <link rel="dns-prefetch" href="https://cdn-images-1.medium.com" />
       <link
         rel="dns-prefetch"
