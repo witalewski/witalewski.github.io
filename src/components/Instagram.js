@@ -49,26 +49,23 @@ const query = graphql`
 export const Instagram = () => (
   <StaticQuery
     query={query}
-    render={data => {
-      const { edges } = data.allInstaNode;
-      return (
-        <InstagramStyled>
-          {edges.map(({ node: { thumbnails, id, caption } }) => {
-            const { src } = thumbnails.find(el => el.config_width === 320);
-            return (
-              <InstagramItemStyled key={src}>
-                <a href={`https://www.instagram.com/p/${id}/`} rel="noopener">
-                  <InstagramThumbnail
-                    src={src}
-                    alt={`Instagram image: ${caption} | @nihilismislove | Adam Witalewski`}
-                  />
-                </a>
-              </InstagramItemStyled>
-            );
-          })}
-        </InstagramStyled>
-      );
-    }}
+    render={({ allInstaNode: { edges } }) => (
+      <InstagramStyled>
+        {edges.map(({ node: { thumbnails, id, caption } }) => {
+          const { src } = thumbnails.find(el => el.config_width === 320);
+          return (
+            <InstagramItemStyled key={src}>
+              <a href={`https://www.instagram.com/p/${id}/`} rel="noopener">
+                <InstagramThumbnail
+                  src={src}
+                  alt={`Instagram image: ${caption} | @nihilismislove | Adam Witalewski`}
+                />
+              </a>
+            </InstagramItemStyled>
+          );
+        })}
+      </InstagramStyled>
+    )}
   />
 );
 
