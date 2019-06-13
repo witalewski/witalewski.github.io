@@ -91,23 +91,21 @@ export const Medium = () => (
                   previewImage: { imageId },
                 },
               },
-            }) => {
-              return (
-                <MediumItemStyled key={title}>
-                  <LinkStyled
-                    href={`https://medium.com/@awitalewski/${uniqueSlug}`}
-                    rel="noopener"
-                  >
-                    <PostTitle>{title}</PostTitle>
-                    <MediumThumbnail
-                      src={`https://cdn-images-1.medium.com/max/360/${imageId}`}
-                      alt={`Illustration for blog post: ${title}`}
-                    />
-                    <DescriptionStyled>{subtitle}</DescriptionStyled>
-                  </LinkStyled>
-                </MediumItemStyled>
-              );
-            }
+            }) => (
+              <MediumItemStyled key={title}>
+                <LinkStyled
+                  href={`https://medium.com/@awitalewski/${uniqueSlug}`}
+                  rel="noopener"
+                >
+                  <PostTitle>{title}</PostTitle>
+                  <MediumThumbnail
+                    src={`https://cdn-images-1.medium.com/max/360/${imageId}`}
+                    alt={`Illustration for blog post: ${title}`}
+                  />
+                  <DescriptionStyled>{subtitle}</DescriptionStyled>
+                </LinkStyled>
+              </MediumItemStyled>
+            )
           )}
         </MediumStyled>
       );
