@@ -24,7 +24,8 @@ export const Bio = () => (
       Adobe Flex.
     </ParagraphStyled>
     <ParagraphStyled>
-      Some of the things I like are React, integration testing and Scrum.
+      Some of the things I like are declarative views (React), integration
+      testing (Cypress) and agile processes (Scrum).
     </ParagraphStyled>
   </BioStyled>
 );
