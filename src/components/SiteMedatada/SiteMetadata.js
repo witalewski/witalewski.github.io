@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 
-const SiteMetadata = () => {
+export const SiteMetadata = () => {
   const {
     site: {
       siteMetadata: {

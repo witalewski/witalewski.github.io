@@ -1,15 +1,15 @@
 import React from 'react';
-import { Medium } from './Medium';
-import { Github } from './Github';
-import { Instagram } from './Instagram';
-import { Bio } from './Bio';
+import { Medium } from 'components/Medium';
+import { Github } from 'components/Github';
+import { Instagram } from 'components/Instagram';
+import { Bio } from 'components/Bio';
+import avatar from 'assets/avatar.jpg';
 import {
   TitleStyled,
   SectionsStyled,
   SectionTitle,
   AvatarStyled,
 } from './MainStyled';
-import avatar from '../assets/avatar.jpg';
 
 export const Main = () => (
   <SectionsStyled>
