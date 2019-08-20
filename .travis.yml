@@ -3,8 +3,8 @@ node_js:
   - 'node'
 
 script:
-  - cypress install
-  - yarn test
+  # - yarn cypress install
+  # - yarn test
   - yarn build
 cache:
   yarn: true
