@@ -5,6 +5,10 @@ node_js:
 script:
   - yarn test
   - yarn build
+cache:
+  yarn: true
+  directories:
+    - ~/.cache
 deploy:
   provider: pages
   target_branch: master
