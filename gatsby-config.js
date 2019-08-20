@@ -30,23 +30,11 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-github-pinned',
-      options: {
-        apiToken: `${process.env.GH_TOKEN}`,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
           families: ['Fira Sans', 'Roboto'],
         },
-      },
-    },
-    {
-      resolve: 'gatsby-source-instagram',
-      options: {
-        username: 'nihilismislove',
       },
     },
   ],

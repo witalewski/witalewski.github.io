@@ -1,7 +1,5 @@
 import React from 'react';
 import { Medium } from 'components/Medium';
-import { Github } from 'components/Github';
-import { Instagram } from 'components/Instagram';
 import { Bio } from 'components/Bio';
 import avatar from 'assets/avatar.jpg';
 import {
@@ -18,10 +16,6 @@ export const Main = () => (
     <Bio />
     <SectionTitle>Writing</SectionTitle>
     <Medium />
-    <SectionTitle>Code</SectionTitle>
-    <Github />
-    <SectionTitle>Photography</SectionTitle>
-    <Instagram />
   </SectionsStyled>
 );
 

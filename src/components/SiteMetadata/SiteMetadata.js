@@ -39,7 +39,6 @@ const render = ({
       content="public,max-age=31536000,immutable"
     />
     <link rel="dns-prefetch" href="https://cdn-images-1.medium.com" />
-    <link rel="dns-prefetch" href="https://scontent-ort2-1.cdninstagram.com" />
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=UA-131029592-1"
