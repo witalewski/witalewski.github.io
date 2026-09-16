@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function NotFound() {
   return (
     <div className="grid h-screen place-items-center">
@@ -8,9 +10,9 @@ export default function NotFound() {
         <div className="inline-block">
           <h2 className="text-sm fw-400 lh-49">
             This page could not be found.{" "}
-            <a href="/" className="underline inline-block ml-5 pl-5 text-sm fw-400 lh-49 text-teal-600 dark:text-teal-300">
+            <Link href="/" prefetch={false} className="underline inline-block ml-5 pl-5 text-sm fw-400 lh-49 text-teal-600 dark:text-teal-300">
               Return Home
-            </a>
+            </Link>
           </h2>
         </div>
       </div>
