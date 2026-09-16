@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { PaperSurface } from "./paper-background";
+import SocialLinks from "./social-links";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       </div>
       <h1 className="text-3xl mb-2 sm:mb-1 text-center">Chris Witalewski</h1>
       <h2 className="text-xl text-center">Software Engineer</h2>
+      <SocialLinks />
     </main>
   );
 }
