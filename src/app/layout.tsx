@@ -5,7 +5,7 @@ import "./globals.css";
 const lato = Lato({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
-  title: "Krzysztof Adam Witalewski",
+  title: "Chris Witalewski",
   description: "Software Engineer - Full Stack Developer",
 };
 
