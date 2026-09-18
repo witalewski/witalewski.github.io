@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
-import PaperBackground from "./paper-background";
 import "./globals.css";
 
 const lato = Lato({ subsets: ["latin"], weight: ["400"] });
@@ -18,9 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lato.className} text-zinc-900 dark:text-zinc-300`}
+        className={`${lato.className} bg-zinc-50 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-300`}
       >
-        <PaperBackground />
         {children}
       </body>
     </html>
